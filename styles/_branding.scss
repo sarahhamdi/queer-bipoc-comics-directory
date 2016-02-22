@@ -1,0 +1,63 @@
+@import url(https://fonts.googleapis.com/css?family=Cabin+Sketch:400,700|Roboto+Condensed:400,300,700|Roboto:400,500,700,300);
+
+$font-family--primary	: "Cabin Sketch", sans-serif;
+$font-family--secondary	: "Roboto", sans-serif;
+
+// Font Weights
+$font-weight--lightest 	: 300;
+$font-weight--light 	: 400;
+$font-weight--medium 	: 500;
+$font-weight--bold 		: 700;
+
+// Descriptive Base Colours
+
+$tomato			: tomato;
+$white			: rgba(253, 253, 253, 1);
+$mustard		: rgba(254, 232, 106, 1);
+$light-mustard	: rgba(255, 246, 173, 1);
+$dark-purple	: rgba(59,4,4,1);
+$lighter-purple	: rgba(59,4,4,.3);
+
+
+// Color Usage
+
+$color-primary		: $tomato;
+$color-secondary	: $white;
+$color-accent		: $mustard;
+$color-accent-light	: $light-mustard;
+$color-shadow		: $dark-purple;
+$color-shadow-light	: $lighter-purple;
+
+
+// Mixins
+
+$box-shadow 	: -7px 7px 25px -12px $color-shadow;
+
+@mixin fontSize($sizeValue){
+    font-size: $sizeValue * 1px;
+    font-size: ($sizeValue/10) * 1rem;
+}
+
+@mixin font-properties ($family, $weight, $align) {
+	font-family: $family;
+	font-weight: $weight;
+	text-align: $align;
+}
+
+@mixin padding-margin ($padding, $margin) {
+	padding: $padding;
+	margin: $margin;
+}
+
+@mixin colors ($background, $color) {
+	background: $background;
+	color: $color;
+}
+
+@mixin flex ($flexflow, $justify-content, $align-content) {
+	flex-flow: $flexflow;
+	justify-content: $justify-content;
+	align-content: $align-content
+}
+
+

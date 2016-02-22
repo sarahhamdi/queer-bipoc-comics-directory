@@ -1,0 +1,154 @@
+@import "setup";
+@import "branding";
+@import "forms";
+
+
+
+body {
+	@include font-properties ($font-family--secondary, 300, left);
+	// color: $color-secondary;
+	@include colors ($color-primary, $color-secondary);
+	@include padding-margin (0, 0);
+	@include fontSize(10);
+	// background: linear-gradient(#FF512F, #dd2476);
+	// background: $color-primary;
+	background: url('../assets/background.png') top center repeat-y fixed;
+	background-size: cover;
+	// &:before {
+	// 	content: '';
+	// 	position: absolute;
+	// 	top: 0;
+	// 	right: 0;
+	// 	bottom: 0;
+	// 	left: 0;
+	// 	background: linear-gradient(#FF512F, #dd2476);
+	// 	opacity: .9;
+	// }
+
+}
+
+a,
+a:hover,
+a:visited {
+	text-decoration: none;
+	color: $color-accent;
+}
+
+img {
+	width: 100%;
+}
+
+h1 {
+	@include fontSize(62);
+	@include font-properties ($font-family--primary, 700, center);
+	@include padding-margin (0px, 50px 0 30px 0);
+	text-shadow: -7px 7px 25px $color-shadow-light;
+	color: $color-accent;
+}
+
+h2 {
+	@include font-properties ($font-family--secondary, 300, center);
+	@include fontSize(14)
+}
+
+div.wrapper {
+	max-width: 900px;
+	@include padding-margin (0px, 0 auto 120px auto);
+}
+
+header {
+	@include padding-margin (0px, 0 0 50px 0);
+	text-align: center;
+}
+
+main {
+	text-align: center;
+	@include padding-margin (0px, 0 0 120px 0);
+	p {
+		margin: 5px 0;
+	}
+}
+
+footer {
+	text-align: center;
+	border-top: 1px dotted $color-secondary;
+}
+
+
+// dynamically generated content styles
+div.results { 
+	display: none;
+	@include flex(row wrap, space-between, flex-start);
+
+	div.image {
+		width: 40%;
+		img {
+		border: 5px solid $color-secondary;
+		box-shadow: $box-shadow;
+		flex-basis: 30%;
+		width: 100%;
+		}
+	}	
+}
+
+div.book-info {
+	flex-basis: 55%;
+	width: 100%;
+	h2 {
+		@include font-properties ($font-family--primary, 400, left);
+		@include padding-margin (0, 0);
+		@include fontSize(18)
+		text-transform: uppercase;
+	}
+	h3 {
+		@include fontSize(10);
+	}
+	p.description {
+		@include padding-margin (0, 30px 0 0 0);
+		line-height: 1.5rem;
+	}
+	p.rating {
+		margin-bottom: 5px;
+	}
+	p.stars {
+		margin: 0;
+		img {
+		width: 20px;
+		}
+
+	}
+}
+
+// library button styles
+div.button {
+	@include colors ($color-secondary, $color-secondary);
+	@include padding-margin (0, 30px 0 0 0);
+	@include fontSize(9);
+	text-transform: uppercase;
+	border-radius: 3px;
+	display: inline-block;
+	&:hover {
+		box-shadow: $box-shadow;
+	}
+
+	a,
+	a:hover,
+	a:visited,
+	a:active {
+		text-decoration: none;
+		@include padding-margin (15px 15px, 0);
+		color: $color-primary;
+		font-weight: 700;
+		p {
+		display: inline-block;
+		}
+		img {
+			width: 120px;
+			float: right;
+			@include padding-margin (5px 15px 10px 0px, 0);
+		}
+	}
+}
+
+@import "mediaqueries";
+		
