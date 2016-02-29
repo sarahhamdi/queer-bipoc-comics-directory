@@ -1,4 +1,4 @@
-@import url(https://fonts.googleapis.com/css?family=Cabin+Sketch:400,700|Roboto+Condensed:400,300,700|Roboto:400,500,700,300);
+@import url(https://fonts.googleapis.com/css?family=Cabin+Sketch:400,700|Roboto:400,500,700,300);
 article, aside, details, figcaption, figure, footer, header, hgroup, nav, section, summary {
   display: block;
 }
@@ -240,6 +240,72 @@ input.checkbox:checked + label {
   border: 1px solid #fff6ad;
 }
 
+form.suggest-comic {
+  padding: 0;
+  margin: 50px 0 0px 0;
+}
+
+form.suggest-comic p {
+  padding: 0;
+  margin: 50px 0 30px 0;
+  -webkit-flex-basis: 100%;
+      -ms-flex-preferred-size: 100%;
+          flex-basis: 100%;
+}
+
+form.suggest-comic input[type=text] {
+  width: calc(50% - 20px);
+  margin: 10px;
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid white;
+}
+
+form.suggest-comic input[type=text]:focus {
+  outline: none;
+}
+
+form.suggest-comic input[type=text]::-webkit-input-placeholder {
+  color: RGBA(255, 255, 255, 0.5);
+}
+
+form.suggest-comic input[type=submit] {
+  padding: 5px;
+  margin: 50px 0 0 0;
+  font-size: 11px;
+  font-size: 1.1rem;
+  background: #fdfdfd;
+  color: tomato;
+  font-weight: 500;
+}
+
+form.suggest-comic input[type=submit]:hover {
+  box-shadow: -7px 7px 25px -12px #3b0404;
+}
+
+form.suggest-comic input[type=submit]:active {
+  box-shadow: none;
+}
+
+form.suggest-comic input[type=submit]:focus {
+  outline: none;
+}
+
+form div.tag input.checkbox + label {
+  border-radius: 0;
+  font-size: 8px;
+  font-size: 0.8rem;
+  padding: 5px 15px;
+  margin: 5px auto;
+  width: 100%;
+}
+
+form div.tag input.checkbox:checked + label {
+  background: #fff6ad;
+  color: tomato;
+  border: 1px solid #fff6ad;
+}
+
 body {
   font-family: "Roboto", sans-serif;
   font-weight: 300;
@@ -291,6 +357,18 @@ div.wrapper {
   margin: 0 auto 120px auto;
 }
 
+aside {
+  padding: 5px;
+  margin: 0;
+  font-size: 9px;
+  font-size: 0.9rem;
+  font-family: "Roboto", sans-serif;
+  font-weight: 300;
+  text-align: center;
+  background: RGBA(4, 1, 16, 0.5);
+  display: none;
+}
+
 header {
   padding: 0px;
   margin: 0 0 50px 0;
@@ -307,13 +385,35 @@ main p {
   margin: 5px 0;
 }
 
+section.suggest-comic {
+  padding: 60px 0 0 0;
+  margin: 0;
+  border-top: 1px dotted #fdfdfd;
+  text-align: center;
+}
+
+section.suggest-comic h2 {
+  font-family: "Cabin Sketch", sans-serif;
+  font-weight: 400;
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 18px;
+  font-size: 1.8rem;
+}
+
 footer {
   text-align: center;
   border-top: 1px dotted #fdfdfd;
 }
 
-div.results {
+div.container {
   display: none;
+}
+
+div.results {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
   -webkit-flex-flow: row wrap;
       -ms-flex-flow: row wrap;
           flex-flow: row wrap;
@@ -459,6 +559,24 @@ div.button a:active img {
   }
   input.checkbox + label {
     width: 95%;
+  }
+  form.suggest-comic {
+    -webkit-flex-flow: column wrap;
+        -ms-flex-flow: column wrap;
+            flex-flow: column wrap;
+    -webkit-justify-content: space-between;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    -webkit-align-content: flex-start;
+        -ms-flex-line-pack: start;
+            align-content: flex-start;
+  }
+  form.suggest-comic input[type=text] {
+    width: 100%;
+  }
+  form.suggest-comic input[type=submit] {
+    width: 100%;
+    margin-top: 30px;
   }
 }
 

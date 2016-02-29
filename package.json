@@ -1,0 +1,31 @@
+{
+  "name": "sarah",
+  "version": "1.0.0",
+  "description": "goodreads api website",
+  "main": "goodreads-comic-app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sarahhamdi/Project-API-Comics.git"
+  },
+  "keywords": [
+    "goodreads",
+    "comics"
+  ],
+  "author": "sarah hamdi",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sarahhamdi/Project-API-Comics/issues"
+  },
+  "homepage": "https://github.com/sarahhamdi/Project-API-Comics#readme",
+  "devDependencies": {
+    "gulp-autoprefixer": "^3.1.0",
+    "gulp-babel": "^6.1.2",
+    "gulp-concat": "^2.6.0",
+    "gulp-postcss": "^6.1.0",
+    "gulp-sass": "^2.2.0",
+    "gulp-sourcemaps": "^1.6.0"
+  }
+}

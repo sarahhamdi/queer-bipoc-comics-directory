@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Outside The Panels</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="styles/base.css">
+	<!-- template for returns -->
+
+	<script id="myTemplate" type="x-handlebars-template">
+    	<div class="results">
+    	    <div class="image">
+    	    	<img src="" alt="">
+    	    </div>
+
+    	    <!-- book information -->
+    	    <div class="book-info">
+    	    	<h2>{{bookReturn.title}}</h2>
+    	    	<h3>{{bookReturn.author}}</h3>
+    	    	<p class="publisher">{{bookReturn.publisher}}</p>
+    	    	<p class="description">{{bookReturn.description}}</p>
+    	    	<p class="rating">Goodreads Rating:</p>
+    	    	<p class="stars">{{bookReturn.stars}}</p>
+    	    	
+    	    	<!-- library button -->
+    	    	<div class="button">
+    	    		<a class="library" src"{{bookReturn.tpl}}"">
+    	    			<p>Find at the </p>
+    	    			<img src="assets/tpl-logo.png" alt="">
+    	    		</a>
+    	    	</div>
+    	    </div>
+    	</div>
+	</script>
+	
+</head>
+<body>
+	<aside id="form-thank-you">
+		<p>Thank you for suggesting a comic! We will check it out before posting to the site.</p>
+	</aside>
+	<div class="wrapper">
+		<header>
+			<h1>Outside The Panels</h1>
+			<h2>We think People of Colour and LGBTQ* makers and characters are important in comics. That's why we built this snazzy tool to help you find them!</h2>	
+		</header>
+
+		<!-- forms -->
+		<main>
+			<form>
+				<div class="checkbox">
+					<input type="checkbox" value="authorPoC" class="checkbox" id="checkbox-1">
+					<label for="checkbox-1">Author/Artist - POC</label>
+				</div>
+				<div class="checkbox">
+					<input type="checkbox" value="authorLGBTQ" class="checkbox" id="checkbox-2">
+					<label for="checkbox-2">Author/Artist - LGBTQ*</label>
+				</div>
+				<div class="checkbox">
+					<input type="checkbox" value="characterPoC" class="checkbox" id="checkbox-3">
+					<label for="checkbox-3">Character - POC</label>
+				</div>
+				<div class="checkbox">
+					<input type="checkbox" value="characterLGBTQ" class="checkbox" id="checkbox-4">
+					<label for="checkbox-4">Character - LGBTQ*</label>
+				</div>
+				<input type="submit" value="Find A Comic" id="submit">
+			</form>
+			<p><strong>POC</strong> = People of Colour</p>
+			<p><strong>LGBTQ*</strong> = Lesbian, Gay, Bisexual, Trans, Queer, Questioning, Intersex, 2 Spirit, Asexual, Pansexual</p>
+		</main>
+
+		<!-- dynamically generated random comic suggestion -->
+		<div class="container" id="slides">
+
+
+		</div><!-- // end of container -->
+	</div>
+	
+<!-- Suggest A Comic -->
+	<section class="suggest-comic">
+		<div class="wrapper">
+		<!-- <details> -->
+			<!-- <summary> -->
+				<h2>Suggest A Comic!</h2>
+			<!-- </summary>			 -->
+				<p>Please provide some information about the comic below - the more the better! Unfortunately, we can't (yet!) display zines or self-published works that don't have entries on Goodreads.</p>
+				<form class="suggest-comic" method="POST" name="suggest-comic" action="http://www.focuspocus.io/magic/d47c1b4b58e42fdbe87ce231f159bdd1">
+					<input type="text" placeholder="Book Title" name="book-title">
+					<input type="text" placeholder="Author and/or Artist" name="book-author">
+					<p>Which categories does this comic fit?</p>
+					<div class="tag">
+						<input type="checkbox" value="authorPoC" class="checkbox" id="checkbox-1" name="Author/Artist - POC">
+						<label for="checkbox-1">Author/Artist - POC</label>
+					</div>
+
+					<div class="tag">
+						<input type="checkbox" value="authorLGBTQ" class="checkbox" id="checkbox-2" name="Author/Artist - LGBTQ*">
+						<label for="checkbox-2">Author/Artist - LGBTQ*</label>
+					</div>
+					<div class="tag">
+						<input type="checkbox" value="characterPoC" class="checkbox" id="checkbox-3" name="Character - POC">
+						<label for="checkbox-3">Character - POC</label>
+					</div>
+					<div class="tag">
+						<input type="checkbox" value="characterLGBTQ" class="checkbox" id="checkbox-4" name="Character - LGBTQ*">
+						<label for="checkbox-4">Character - LGBTQ*</label>
+					</div>
+					<input type="submit" value="Send Suggestion" id="suggest-comic-submit" name="submit">
+				</form>
+			</details>
+		</div>
+	</section>
+	<!-- credits -->
+	<footer>
+		<p>Made with ♥ by <a href="http://sarahhamdi.com" target="_blank">Sarah Hamdi</a>, who wishes she could kick ass like a superhero but will settle for making websites.</p>
+		<p>This site uses <a href="https://sheetsu.com/">Sheetsu</a> + the <a href="https://www.goodreads.com/api">Goodreads</a> & <a href="https://openlibrary.org/dev/docs/api/covers" target="_blank">Open Library</a> APIs.
+		</p>
+		 
+	</footer>
+</body>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.5/handlebars.min.js"></script
+<script src="slides/source/jquery.slides.min.js"></script>
+<script src="goodreads-comic-app.js"></script>
+
+</html>

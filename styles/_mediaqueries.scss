@@ -35,6 +35,16 @@
 	input.checkbox + label {
 		width: 95%;
 	}
+	form.suggest-comic {
+		@include flex(column wrap, space-between, flex-start);
+		input[type=text] {
+			width: 100%;
+		}
+		input[type=submit] {
+		width: 100%;
+		margin-top: 30px; 
+		}
+	}
 }
 
 @media (max-width: 490px) {

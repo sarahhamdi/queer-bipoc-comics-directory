@@ -27,6 +27,10 @@ body {
 
 }
 
+// #slides {
+//     display:none;
+// }
+
 a,
 a:hover,
 a:visited {
@@ -56,6 +60,17 @@ div.wrapper {
 	@include padding-margin (0px, 0 auto 120px auto);
 }
 
+aside {
+	@include padding-margin (5px, 0);
+	@include fontSize(9)
+	@include font-properties ($font-family--secondary, 300, center);
+	background: RGBA(4, 1, 16, .5);
+	display: none;
+	
+
+
+}
+
 header {
 	@include padding-margin (0px, 0 0 50px 0);
 	text-align: center;
@@ -69,15 +84,28 @@ main {
 	}
 }
 
+section.suggest-comic {
+	@include padding-margin (60px 0 0 0, 0);
+	border-top: 1px dotted $color-secondary;
+	text-align: center;
+	h2 {
+		@include font-properties ($font-family--primary, 400, center);
+		text-transform: uppercase;
+		@include fontSize(18)
+	}
+}
+
 footer {
 	text-align: center;
 	border-top: 1px dotted $color-secondary;
 }
 
-
+div.container {
+	display: none;
+}
 // dynamically generated content styles
 div.results { 
-	display: none;
+	display: flex;
 	@include flex(row wrap, space-between, flex-start);
 
 	div.image {
