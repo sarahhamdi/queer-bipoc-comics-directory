@@ -10,21 +10,21 @@
 	<script id="myTemplate" type="x-handlebars-template">
     	<div class="results">
     	    <div class="image">
-    	    	<img src="" alt="">
+    	    	<img src="{{imageUrl}}" alt="">
     	    </div>
 
     	    <!-- book information -->
     	    <div class="book-info">
-    	    	<h2>{{bookReturn.title}}</h2>
-    	    	<h3>{{bookReturn.author}}</h3>
-    	    	<p class="publisher">{{bookReturn.publisher}}</p>
-    	    	<p class="description">{{bookReturn.description}}</p>
-    	    	<p class="rating">Goodreads Rating:</p>
-    	    	<p class="stars">{{bookReturn.stars}}</p>
+    	    	<h2>{{{title}}}</h2>
+    	    	<h3>{{{author}}}</h3>
+    	    	<p class="publisher">{{publisher}}</p>
+    	    	<p class="description">{{{description}}}</p>
+    	    	<p class="rating"><a href="{{{goodreadsLink}}} target="_blank">Goodreads Rating:</a></p>
+    	    	<p class="stars">{{{stars}}}</p>
     	    	
     	    	<!-- library button -->
     	    	<div class="button">
-    	    		<a class="library" src"{{bookReturn.tpl}}"">
+    	    		<a class="library" href="{{tpl}}">
     	    			<p>Find at the </p>
     	    			<img src="assets/tpl-logo.png" alt="">
     	    		</a>
@@ -71,7 +71,7 @@
 
 		<!-- dynamically generated random comic suggestion -->
 		<div class="container" id="slides">
-
+			<img src="assets/blankcover.png">
 
 		</div><!-- // end of container -->
 	</div>
@@ -113,6 +113,7 @@
 	<!-- credits -->
 	<footer>
 		<p>Made with ♥ by <a href="http://sarahhamdi.com" target="_blank">Sarah Hamdi</a>, who wishes she could kick ass like a superhero but will settle for making websites.</p>
+		<p>Comic contributions from Cindy Ma, Heather Mawby, Keira Mawby, May El-Abdallah, Koom Kanishkan, and David Missio.</p>
 		<p>This site uses <a href="https://sheetsu.com/">Sheetsu</a> + the <a href="https://www.goodreads.com/api">Goodreads</a> & <a href="https://openlibrary.org/dev/docs/api/covers" target="_blank">Open Library</a> APIs.
 		</p>
 		 
@@ -123,7 +124,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.5/handlebars.min.js"></script
-<script src="slides/source/jquery.slides.min.js"></script>
+<script src="jquery.slides.min.js"></script>
 <script src="goodreads-comic-app.js"></script>
 
 </html>

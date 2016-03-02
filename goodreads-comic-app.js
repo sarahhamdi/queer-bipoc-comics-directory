@@ -12,7 +12,7 @@ myAPIProject.getInfo = function() {
 		dataType: 'json',
 	}).then(function(response){
 		myAPIProject.data = response;
-		console.log(response);
+		// console.log(response);
 		myAPIProject.onSubmitHandler(); 
 	}); 
 }; 
@@ -26,9 +26,10 @@ myAPIProject.onSubmitHandler = function(){
 
 	// ON SUBMIT BASIC FUNCTION
 		$('form').on('submit', function(event){
-			
+			$('div.container').empty();
 			selectedFilters = []; // empty this each time so it doesn't just keep appending data each time someone hits 'submit'
 			event.preventDefault(); // prevents default page refresh on submit
+			// myAPIProject.slides();
 			// $('div.results h2', 'div.results h3', 'div.results p.description', 'div.results p').empty(); // empties the data in the html, to be replaced below
 			$('input:checked').each(function(){
 				userInput = $(this).val();
@@ -93,8 +94,8 @@ myAPIProject.onSubmitHandler = function(){
 				_.each(authorPQcharPQ, function(selectedBook){
 					myAPIProject.goodreadsAPI.getBooks(selectedBook);
 					myAPIProject.counter++;
-					console.log(myAPIProject.counter);
-					console.log(selectedBook);
+					// console.log(myAPIProject.counter);
+					// console.log(selectedBook);
 				});
 		} else if (selectedFilters[0] == 'authorPoC' 
 			&& selectedFilters[1] == 'authorLGBTQ' 
@@ -102,7 +103,7 @@ myAPIProject.onSubmitHandler = function(){
 				_.each(authorPQcharP, function(selectedBook){
 					myAPIProject.goodreadsAPI.getBooks(selectedBook);
 					myAPIProject.counter++;
-					console.log(myAPIProject.counter);
+					// console.log(myAPIProject.counter);
 				});
 		} else if (selectedFilters[0] == 'authorPoC' 
 			&& selectedFilters[1] == 'authorLGBTQ' 
@@ -110,7 +111,7 @@ myAPIProject.onSubmitHandler = function(){
 				_.each(authorPQcharQ, function(selectedBook){
 					myAPIProject.goodreadsAPI.getBooks(selectedBook);
 					myAPIProject.counter++;
-					console.log(myAPIProject.counter);
+					// console.log(myAPIProject.counter);
 				});
 		} else if (selectedFilters[0] == 'authorPoC' 
 			&& selectedFilters[1] == 'characterPoC' 
@@ -118,7 +119,7 @@ myAPIProject.onSubmitHandler = function(){
 				_.each(authorPcharPQ, function(selectedBook){
 					myAPIProject.goodreadsAPI.getBooks(selectedBook);
 					myAPIProject.counter++;
-					console.log(myAPIProject.counter);
+					// console.log(myAPIProject.counter);
 				});
 		} else if (selectedFilters[0] == 'authorLGBTQ' 
 			&& selectedFilters[1] == 'characterPoC' 
@@ -126,73 +127,73 @@ myAPIProject.onSubmitHandler = function(){
 				_.each(authorQcharPQ, function(selectedBook){
 					myAPIProject.goodreadsAPI.getBooks(selectedBook);
 					myAPIProject.counter++;
-					console.log(myAPIProject.counter);
+					// console.log(myAPIProject.counter);
 				});
 		} else if (selectedFilters[0] == 'authorPoC' 
 			&& selectedFilters[1] == 'characterPoC') {
 				_.each(authorPcharP, function(selectedBook){
 					myAPIProject.goodreadsAPI.getBooks(selectedBook);
 					myAPIProject.counter++;
-					console.log(myAPIProject.counter);
+					// console.log(myAPIProject.counter);
 				});
 		} else if (selectedFilters[0] == 'authorPoC' 
 			&& selectedFilters[1] == 'characterLGBTQ') {
 				_.each(authorPcharQ, function(selectedBook){
 					myAPIProject.goodreadsAPI.getBooks(selectedBook);
 					myAPIProject.counter++;
-					console.log(myAPIProject.counter);
+					// console.log(myAPIProject.counter);
 				});
 		} else if (selectedFilters[0] == 'authorPoC'
 			&& selectedFilters[1] == 'authorLGBTQ') {
 				_.each(authorPQ, function(selectedBook){
 					myAPIProject.goodreadsAPI.getBooks(selectedBook);
 					myAPIProject.counter++;
-					console.log(myAPIProject.counter);
+					// console.log(myAPIProject.counter);
 				}); 
 		} else if (selectedFilters[0] == 'characterPoC' 
 			&& selectedFilters[1] == 'characterLGBTQ') {
 				_.each(charPQ, function(selectedBook){
 					myAPIProject.goodreadsAPI.getBooks(selectedBook);
 					myAPIProject.counter++;
-					console.log(myAPIProject.counter);
+					// console.log(myAPIProject.counter);
 				}); 
 		} else if (selectedFilters[0] == 'authorLGBTQ' 
 			&& selectedFilters[1] == 'characterPoC') {
 				_.each(authorQcharP, function(selectedBook){
 					myAPIProject.goodreadsAPI.getBooks(selectedBook);
 					myAPIProject.counter++;
-					console.log(myAPIProject.counter);
+					// console.log(myAPIProject.counter);
 				}); 
 		} else if (selectedFilters[0] == 'authorLGBTQ' 
 			&& selectedFilters[1] == 'characterLGBTQ') {
 				_.each(authorQcharQ, function(selectedBook){
 					myAPIProject.goodreadsAPI.getBooks(selectedBook);
 					myAPIProject.counter++;
-					console.log(myAPIProject.counter);
+					// console.log(myAPIProject.counter);
 				}); 
 		} else if (selectedFilters[0] == 'authorPoC') {
 			_.each(authorP, function(selectedBook){
 				myAPIProject.goodreadsAPI.getBooks(selectedBook);
 				myAPIProject.counter++;
-					console.log(myAPIProject.counter);
+					// console.log(myAPIProject.counter);
 			});
 		} else if (selectedFilters[0] == 'authorLGBTQ') {
 			_.each(authorQ, function(selectedBook){
 				myAPIProject.goodreadsAPI.getBooks(selectedBook);
 				myAPIProject.counter++;
-					console.log(myAPIProject.counter);
+					// console.log(myAPIProject.counter);
 			});
 		} else if (selectedFilters[0] == 'characterPoC') {
 			_.each(charP, function(selectedBook){
 				myAPIProject.goodreadsAPI.getBooks(selectedBook);
 				myAPIProject.counter++;
-					console.log(myAPIProject.counter);
+					// console.log(myAPIProject.counter);
 			});
 		} else if (selectedFilters[0] == 'characterLGBTQ') {
 			_.each(charQ, function(selectedBook){
 				myAPIProject.goodreadsAPI.getBooks(selectedBook);
 				myAPIProject.counter++;
-					console.log(myAPIProject.counter);
+					// console.log(myAPIProject.counter);
 			});
 		}; // end of if/else statement
 
@@ -247,40 +248,36 @@ myAPIProject.printToPage = function(books, selectedBook, string){
 		}
 	}).join('');
 	
-	// replaces nonexistant goodreads images with openlibrary imaages
-	if (re.exec(replaceGoodreadsWithOpenLibrary) == null) {
-		$('div.image').addClass('thingy' + myAPIProject.counter +'');
-		var tempHolder = $('div.image.thingy'+ myAPIProject.counter + ' img').attr('src', largerGoodreadsImageFixed);
-		$('div.container').append(tempHolder);
-	} else if (('http://covers.openlibrary.org/b/isbn/' + books.GoodreadsResponse.book.isbn + '-L.jpg') == 'http://covers.openlibrary.org/b/isbn/[object Object]-L.jpg') {
-		$('div.image').addClass('thingy' + myAPIProject.counter +'');
-		var tempHolder = $('div.image.thingy'+ myAPIProject.counter + ' img').attr('src', 'assets/blankcover.png');
-		$('div.container')
-	} else {
-		$('div.image').addClass('thingy' + myAPIProject.counter +'');
-		var tempHolder = $('div.image.thingy'+ myAPIProject.counter + ' img').attr('src', 'http://covers.openlibrary.org/b/isbn/' + books.GoodreadsResponse.book.isbn + '-L.jpg');
-		$('div.container')
-	}
-
 	// book results
 	$('div.container').css({'display':'block'});
-	$('div.results').css({"display":"flex"});
+	// $('div.results').css({"display":"flex"});
 
+	// replaces nonexistant goodreads images with openlibrary imaages
+	var bookReturn = {
+		title: (books.GoodreadsResponse.book.title),
+		author: 'By: ' + selectedBook.author,
+		publisher: 'Publisher: ' + books.GoodreadsResponse.book.publisher,
+		description: cleanup(books.GoodreadsResponse.book.description),
+		stars: stars,
+		goodreadsLink: books.GoodreadsResponse.book.url,
+		tpl: tpl + bookTitleWithPluses,
+		imageUrl: 'assets/blankcover.png',
+		listID: 'item-' + myAPIProject.counter
+	};
 	var myTemplate = $('#myTemplate').html();
 	var template = Handlebars.compile(myTemplate);
 
-	var bookReturn = {
-		// title: (books.GoodreadsResponse.book.title),
-		// author: 'By: ' + selectedBook.author,
-		// publisher: 'Publisher: ' + books.GoodreadsResponse.book.publisher,
-		// description: cleanup(books.GoodreadsResponse.book.description),
-		// stars: stars,
-		// tpl: tpl + bookTitleWithPluses
-	};
+	if (re.exec(replaceGoodreadsWithOpenLibrary) == null) {
 
-	console.log(stars);
-	// var bookTemplate = template(bookReturn);
-	$('div.container').append(template());
+		bookReturn.imageUrl = largerGoodreadsImageFixed
+
+	} else if (('http://covers.openlibrary.org/b/isbn/' + books.GoodreadsResponse.book.isbn + '-L.jpg') !== 'http://covers.openlibrary.org/b/isbn/[object Object]-L.jpg') {
+
+		bookReturn.imageUrl = 'http://covers.openlibrary.org/b/isbn/' + books.GoodreadsResponse.book.isbn + '-L.jpg';
+
+	}
+
+	$('div.container').append(template(bookReturn));
 
 }
 
@@ -305,19 +302,33 @@ myAPIProject.goodreadsAPI.getBooks = function(selectedBook) {
 			xmlToJSON: true
 		}
 	}).then(function(books) {
-		console.log(books);
+		// console.log(books);
 		$('div.container').append(myAPIProject.printToPage(books, selectedBook));
+		myAPIProject.slides();
+
 	});
 };
 
 
-// myAPIProject.slides = function(){
-// 	$("#slides").slidesjs({
-// 	      width: '100%'
-// 	      // height: 528
-// 	});
-// };
+myAPIProject.slides = function(){
+    $('#slides').slidesjs({
+    width: 940,
+    height: 528,
+    navigation: {
+      effect: "fade"
+    },
+    pagination: {
+      effect: "fade"
+    },
+    effect: {
+      fade: {
+        speed: 400
+      }
+    }
+  });
+ };
 
 $(function(){
 	myAPIProject.getInfo();
+
 });
