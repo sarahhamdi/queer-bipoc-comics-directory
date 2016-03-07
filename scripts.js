@@ -1,5 +1,8 @@
 // EMPTY OBJECT TO HOLD EVERYTHING
 var myAPIProject = {}; 
+var deferred = new $.Deferred();
+var promise = deferred.promise();
+var template;
 myAPIProject.counter = 0;
 
 // ++++++++ SHEETSU API CALL +++++++++++++++++++++++++++
@@ -12,7 +15,7 @@ myAPIProject.getSheetsuAPIInfo = function() {
 		dataType: 'json',
 	}).then(function(response){
 		myAPIProject.data = response;
-		myAPIProject.onSubmitHandler(); 
+		myAPIProject.onSubmitHandler();
 	}); // end of Sheetsu AJAX call
 }; // end of function
 
@@ -37,8 +40,10 @@ myAPIProject.goodreadsAPI.getBooks = function(selectedBook) {
 			xmlToJSON: true
 		}
 	}).then(function(books) {
-		$('div.container').append(myAPIProject.printToPage(books, selectedBook));
-	}); // end of Goodreads AJAX call
+		$('div.container').append(myAPIProject.printToPage(books, selectedBook))
+		});
+
+	//}; // end of Goodreads AJAX call
 }; // end of function
 
 
@@ -65,13 +70,11 @@ myAPIProject.onSubmitHandler = function(){
 		myAPIProject.datafilters(selectedFilters);
 
 	}); // end of on submit function
+
 }; // end of function onSubmitHandler
 
-// myAPIProject.authorP;
-
+// ++++++++++ FILTERING BOOKS + RETURNING CORRECT ONES ++++++++++++++
 myAPIProject.datafilters = function (selectedFilters){
-
-
 	// this data filters through all the info in  Sheetsu and returns the values that match specific conditions. To be used to display results based on user prefs.
 	myAPIProject.authorP = myAPIProject.data.result.filter(function(value){
 			return value.authorPoC == 'y'; 
@@ -123,12 +126,9 @@ myAPIProject.datafilters = function (selectedFilters){
 };
 
 
-	// ALL THE DATA I CAN"T PUT IN ANOTHER FUNCTION BECAUSE I DON"T UNDERSTAND PLACEHOLDERS	
-
-	
+// ++++++++++ GIANT IF/ELSE STATEMENT TO DETERMIN WHICH BOOK TO DISPLAY BASED ON USER PREFS ++++++++++++++
 
 myAPIProject.giantIfElseStatement = function(selectedFilters){
-
 	// A GIANT UGLY IF/ELSE STATEMENT - will replace this with an _.each statement in the future
 	// if/else statement used to determine which 
 		if (selectedFilters[0] == 'authorPoC' 
@@ -230,7 +230,8 @@ myAPIProject.giantIfElseStatement = function(selectedFilters){
 }; // end of function - myAPIProject.onSubmitHandler()
 
 
-// ++++++++++++++++++++++ PRINT ITEMS TO PAGE CALLED LATER BELOW ++++++++++++
+// +++++++++++ PRINT ITEMS TO PAGE CALLED LATER BELOW ++++++++++++
+
 myAPIProject.printToPage = function(books, selectedBook, string){
 
 	// replaces goodreads rating with svg stars
@@ -251,7 +252,6 @@ myAPIProject.printToPage = function(books, selectedBook, string){
 	var bookTitleWithPluses = bookTitle.split(" ");
 	var bookTitleWithPluses = bookTitleWithPluses.join('+');
 	var tpl = 'http://www.torontopubliclibrary.ca/search.jsp?advancedSearch=true&Ntt=';
-
 
 	// variables to help with dealing with missing images, if/else statement below
 	var imageURL = books.GoodreadsResponse.book.image_url;
@@ -289,8 +289,7 @@ myAPIProject.printToPage = function(books, selectedBook, string){
 		listID: 'item-' + myAPIProject.counter
 	};
 	var myTemplate = $('#myTemplate').html();
-	var template = Handlebars.compile(myTemplate);
-
+	template = Handlebars.compile(myTemplate);
 
 	// BOOK COVERS 2 - if no Open Library book cover exists, this if/else runs 
 	// it will return a large Goodreads book cover, using variable from function above
@@ -301,34 +300,16 @@ myAPIProject.printToPage = function(books, selectedBook, string){
 		bookReturn.imageUrl = 'http://covers.openlibrary.org/b/isbn/' + books.GoodreadsResponse.book.isbn + '-L.jpg';
 	}
 
-	$('div.container').css({'display':'block'});
-	$('div.container').append(template(bookReturn));
+	//$('div.container').css({'display':'block'});
+
+		$('div.container').css({'display':'block'});
+		$('div.container').append(template(bookReturn));
+
+		setTimeout(function(){
+	myAPIProject.slider();}, 10000);
+};
 
 
-
-}
-
-
-
-
-
-// myAPIProject.slides = function(){
-//     $('#slides').slidesjs({
-//     width: 940,
-//     height: 528,
-//     navigation: {
-//       effect: "fade"
-//     },
-//     pagination: {
-//       effect: "fade"
-//     },
-//     effect: {
-//       fade: {
-//         speed: 400
-//       }
-//     }
-//   });
-//  };
 
 myAPIProject.submitFormThankYouAppear = function() {
 	if (document.URL == 'http://localhost:3000/#thankyou') {
@@ -341,12 +322,28 @@ myAPIProject.submitFormThankYouAppear = function() {
 
 myAPIProject.init = function(){
 
+	// $("button").on( "click", function() {
+
+	//   $.when( myAPIProject.getSheetsuAPIInfo() ).done(function() {
+	    	
+	//     	$(function(){
+	//     	      $("#slides").slidesjs({
+	//     	        width: 940,
+	//     	        height: 528
+	//     	      });
+	//     	});
+	//  	});
+
+	// });
+myAPIProject.getSheetsuAPIInfo();
+myAPIProject.submitFormThankYouAppear();
 	
-	myAPIProject.submitFormThankYouAppear()
-	myAPIProject.getSheetsuAPIInfo()
-	// myAPIProject.getSheetsuAPIInfo(slides)
+			
+}
 
-
+myAPIProject.slider = function(){
+	$("#slides").slidesjs({
+	})
 };
 
 
@@ -354,5 +351,8 @@ myAPIProject.init = function(){
 // +++++++ DOCUMENT READY +++++++++++++++++++++
 
 $(function(){
-	myAPIProject.init();
-});
+
+	  		myAPIProject.init();
+
+	});	
+

@@ -4,8 +4,11 @@
 	<meta charset="UTF-8">
 	<title>Outside The Panels</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/jquery.slick/1.5.9/slick.css"/>
 	<link rel="stylesheet" href="styles/base.css">
-	<!-- template for returns -->
+	
+
+	<!-- Handlebars Template for API Results -->
 
 	<script id="myTemplate" type="x-handlebars-template">
 
@@ -36,16 +39,20 @@
 	
 </head>
 <body>
+	
+	<!-- Hidden Thank You for Suggestion Form Below -->
 	<aside id="form-thank-you">
 		<p>Thank you for suggesting a comic! We will check it out before posting to the site.</p>
 	</aside>
+
+	<!-- Intro To Site -->
 	<div class="wrapper">
 		<header>
 			<h1>Outside The Panels</h1>
 			<h2>We think People of Colour and LGBTQ* makers and characters are important in comics. That's why we built this snazzy tool to help you find them!</h2>	
 		</header>
 
-		<!-- forms -->
+		<!-- Form - User Selects Options -->
 		<main>
 			<form>
 				<div class="checkbox">
@@ -70,20 +77,16 @@
 			<p><strong>LGBTQ*</strong> = Lesbian, Gay, Bisexual, Trans, Queer, Questioning, Intersex, 2 Spirit, Asexual, Pansexual</p>
 		</main>
 
-		<!-- dynamically generated random comic suggestion -->
+		<!-- Container for API Results, Handlebars Template generates here -->
 		<div class="container" id="slides">
-			<!-- <img src="assets/blankcover.png"> -->
-
 		</div><!-- // end of container -->
+
 	</div>
 	
-<!-- Suggest A Comic -->
+	<!-- Suggest A Comic Form -->
 	<section class="suggest-comic">
 		<div class="wrapper">
-		<!-- <details> -->
-			<!-- <summary> -->
 				<h2>Suggest A Comic!</h2>
-			<!-- </summary>			 -->
 				<p>Please provide some information about the comic below - the more the better! Unfortunately, we can't (yet!) display zines or self-published works that don't have entries on Goodreads.</p>
 				<form class="suggest-comic" method="POST" name="suggest-comic" action="http://www.focuspocus.io/magic/d47c1b4b58e42fdbe87ce231f159bdd1">
 					<input type="text" placeholder="Book Title" name="book-title">
@@ -93,7 +96,6 @@
 						<input type="checkbox" value="authorPoC" class="checkbox" id="checkbox-1" name="Author/Artist - POC">
 						<label for="checkbox-1">Author/Artist - POC</label>
 					</div>
-
 					<div class="tag">
 						<input type="checkbox" value="authorLGBTQ" class="checkbox" id="checkbox-2" name="Author/Artist - LGBTQ*">
 						<label for="checkbox-2">Author/Artist - LGBTQ*</label>
@@ -111,21 +113,25 @@
 			</details>
 		</div>
 	</section>
+
 	<!-- credits -->
 	<footer>
 		<p>Made with ♥ by <a href="http://sarahhamdi.com" target="_blank">Sarah Hamdi</a>, who wishes she could kick ass like a superhero but will settle for making websites.</p>
 		<p>Comic contributions from Cindy Ma, Heather Mawby, Keira Mawby, May El-Abdallah, Koom Kanishkan, and David Missio.</p>
 		<p>This site uses <a href="https://sheetsu.com/">Sheetsu</a> + the <a href="https://www.goodreads.com/api">Goodreads</a> & <a href="https://openlibrary.org/dev/docs/api/covers" target="_blank">Open Library</a> APIs.
-		</p>
-		 
+		</p>	 
 	</footer>
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.5/handlebars.min.js"></script>
+	<script type="text/javascript" src="http://cdn.jsdelivr.net/jquery.slick/1.5.9/slick.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/slidesjs/3.0/jquery.slides.js"></script>
+	<script src="scripts.js"></script>
+
 </body>
 
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.5/handlebars.min.js"></script>
-<script src="jquery.slides.min.js"></script>
-<script src="scripts.js"></script>
+
 
 </html>
