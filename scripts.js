@@ -56,8 +56,10 @@ myAPIProject.onSubmitHandler = function(){
 	var selectedFilters = []; 
 
 	// ON SUBMIT BASIC FUNCTION
-		$('form').on('submit', function(event){
+		$('form.choose-comics').on('submit', function(event){
 			$('div.container').empty();
+			// $('div.container').toggleClass('show hide');
+			// $('div.results').toggleClass('show hide');
 			// empty array each time so it doesn't just keep appending data each time someone hits 'submit'
 			selectedFilters = []; 
 			// prevents default page refresh on submit
@@ -299,15 +301,22 @@ myAPIProject.printToPage = function(books, selectedBook, string){
 	} else if (('http://covers.openlibrary.org/b/isbn/' + books.GoodreadsResponse.book.isbn + '-L.jpg') !== 'http://covers.openlibrary.org/b/isbn/[object Object]-L.jpg') {
 		bookReturn.imageUrl = 'http://covers.openlibrary.org/b/isbn/' + books.GoodreadsResponse.book.isbn + '-L.jpg';
 	}
-
-	//$('div.container').css({'display':'block'});
-
-		$('div.container').css({'display':'block'});
+		$('div.container').css({"display": "block"});
 		$('div.container').append(template(bookReturn));
 
-		setTimeout(function(){
-	myAPIProject.slider();}, 10000);
+		// timer for the slider
+		// setTimeout(function(){
+		// 	myAPIProject.slider();
+		// 	$('div.container').toggleClass('hide show');
+		// 	$('div.results').toggleClass('hide show');
+
+		// }, 8000);
 };
+
+// myAPIProject.slider = function(){
+// 	$("#slides").slidesjs({
+// 	})
+// };
 
 
 
@@ -337,14 +346,25 @@ myAPIProject.init = function(){
 	// });
 myAPIProject.getSheetsuAPIInfo();
 myAPIProject.submitFormThankYouAppear();
-	
+
+	$(function() {
+		  $('a[href*="#"]:not([href="#"])').click(function() {
+		    if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
+		      var target = $(this.hash);
+		      target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
+		      if (target.length) {
+		        $('html, body').animate({
+		          scrollTop: target.offset().top
+		        }, 1000);
+		        return false;
+		      }
+		    }
+		  });
+		});
 			
 }
 
-myAPIProject.slider = function(){
-	$("#slides").slidesjs({
-	})
-};
+
 
 
 

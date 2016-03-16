@@ -1,77 +1,63 @@
-.slides {
-  padding: 0;
-  width: 100%;
-  // height: 100vh;
-  display: block;
-  margin: 0 auto;
-  position: relative;
+
+
+div#slides ul.slidesjs-pagination {
+    
+    list-style: none;
+     display: none;
+     flex-flow: row wrap;
+     justify-content: center;
+     color: white;
+     margin-top: 50px;
+     padding: 0;
+
+      li.slidesjs-pagination-item {
+      text-align: center;
+      display: inline;
+      width: 30px;
+      padding: 5px;
+      margin: 10px;
+      border: 1px solid white;
+      color: white;
+      border-radius: 50%;
+      &:hover {
+        background: RGBA(255, 247, 169, 1);
+        color: tomato;
+      }
+      a {
+        // padding: 5px;
+        /* background: yellow; */
+        color: white;
+        font-weight: $font-weight--light;
+        &:hover,
+        &:active {
+          color: tomato;
+          background: yellow;
+        }
+
+        
+      }
+      
+    }
 }
 
-.slides * {
-  user-select: none;
-  -ms-user-select: none;
-  -moz-user-select: none;
-  -khtml-user-select: none;
-  -webkit-user-select: none;
-  -webkit-touch-callout: none;
+div.slidesjs-slide {
+    display: flex;
 }
 
-.slides input {
-  display: none;
-}
 
-.slide-container {
-  display: block;
-}
-
-.slide {
-  top: 0;
-  opacity: 0;
-  width: 100%;
-  height: 100%;
-  display: block;
+a.slidesjs-next {
   position: absolute;
-  transform: scale(0);
-  transition: width .7s linear;
+  right: 5%;
+  bottom: -50%;
+    font-size: 74px;
 }
+    
 
-.slide img {
-  width: 100%;
-  height: 100%;
-}
 
-.nav label {
-  width: 50px;
-  height: 100%;
-  display: none;
+a.slidesjs-previous {
   position: absolute;
-  opacity: 1;
-  z-index: 9;
-  cursor: pointer;
-  transition: opacity .2s;
-  color: #purple;
-  font-size: 50pt;
-  text-align: center;
-  line-height: 380px;
-  font-family: "Arial", sans-serif;
-/*   background-color: rgba(255, 255, 255, .3); */
-/*   text-shadow: 0px 0px 15px rgb(119, 119, 119); */
+  left: 5%;
+  bottom: -50%;
+  font-size: 74px;
 }
-
-.slide:hover + .nav label {
-  opacity: 0.5;
-}
-
-.nav .next {
-  right: 0;
-}
-
-input:checked + .slide-container .slide {
-  opacity: 1;
-  transform: scale(1);
-  transition: width 1s linear;
-}
-
-input:checked + .slide-container .nav label {
-  display: block;
-}
+    

@@ -1,6 +1,7 @@
 @import "setup";
 @import "branding";
 @import "forms";
+@import 'slider';
 
 
 
@@ -104,7 +105,9 @@ div.container {
 div.results { 
 	display: flex;
 	@include flex(row wrap, space-between, flex-start);
-
+	@include padding-margin (75px 0, 0);
+	// border-bottom: 1px solid $color-accent-light;
+	border-bottom: 1px dotted rgba(255, 246, 173, .8);
 	div.image {
 		width: 40%;
 		img {
@@ -113,7 +116,14 @@ div.results {
 		flex-basis: 30%;
 		width: 100%;
 		}
+	}
+	&:first-of-type {
+		@include padding-margin (0 0 75px 0, 0);
 	}	
+	&:last-of-type {
+		border-bottom: none;
+		@include padding-margin (75px 0 0 0, 0);
+	}
 }
 
 div.book-info {
@@ -173,6 +183,14 @@ div.button {
 			@include padding-margin (5px 15px 10px 0px, 0);
 		}
 	}
+}
+
+.hide {
+	display: none;
+}
+
+.show {
+	display: block;
 }
 
 @import "mediaqueries";

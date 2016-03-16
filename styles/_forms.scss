@@ -1,4 +1,4 @@
-form {
+form.choose-comics {
 		display: flex;
 		@include flex (row wrap, space-around, flex-start);
 		margin-bottom: 50px;
@@ -45,6 +45,10 @@ form {
 			cursor: pointer;
 			display: block;
 			width: 70%;
+
+		}
+		+label:hover {
+			@include colors ($color-accent-light, $color-primary);
 		}
 		&:checked + label {
 			@include colors ($color-accent-light, $color-primary);
@@ -91,7 +95,7 @@ form.suggest-comic {
 
 }
 
-form div.tag {
+form.suggest-comic div.tag {
 	input.checkbox {
 		+ label {
 			border-radius: 0;
@@ -99,9 +103,11 @@ form div.tag {
 			@include padding-margin (5px 15px, 5px auto);
 			width: 100%;
 		}
-		&:checked + label {
+		
+	}
+	&:checked + label {
 			@include colors ($color-accent-light, $color-primary);
 			border: 1px solid $color-accent-light;
 		}
-	}
+
 }

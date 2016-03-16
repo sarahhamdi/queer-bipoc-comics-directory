@@ -1,59 +1,59 @@
-'use strict'
+var gulp   = require('gulp'),
+		browserSync = require('browser-sync'),
+		reload = browserSync.reload,
+		autoprefixer = require('gulp-autoprefixer'),
+		concat = require('gulp-concat'),
+		// imageMin = require('gulp-imagemin'),
+		minifyCSS = require('gulp-minify-css'),
+		notify = require('gulp-notify'),
+		plumber = require('gulp-plumber'),
+		sass = require('gulp-sass'),
+		sourcemaps = require('gulp-sourcemaps'),
+		uglify = require('gulp-uglify');
 
-// these refer to all the packages we installed
-const gulp = require('gulp');
-const sass = require('gulp-sass');
-const concat = require('gulp-concat');
-const babel = require('gulp-babel');
-const autoprefixer = require('gulp-autoprefixer');
-const browserSync = require('browser-sync').create();
-const reload = browserSync.reload;
-const sourcemaps = require('gulp-sourcemaps');
-const postCSS = require('gulp-postcss');
+gulp.task('bs', function() {
+	browserSync.init({
+		server: './'
+	});
+});
 
-gulp.task('styles', () => {
-	// grabs all the scss files
-	return gulp.src('./dev/styles/**/*.scss')
+gulp.task('styles', function() {
+	return gulp.src('./styles/*.scss')
+		.pipe(plumber({
+		  errorHandler: notify.onError("Error: <%= error.message %>")
+		}))
 		.pipe(sourcemaps.init())
-		// chained methods below
-		.pipe(sass().on('error', sass.logError))
-		
-		.pipe(postCSS([
-			require('postcss-size')
-			]))
-		// adds vender prefixes to all things
-		.pipe(autoprefixer('last 2 version', 'safari 5', 'ie 8', 'ie 9', 'opera 12.1'))
-		// mashes all these style files into one file (style.css)
-	    .pipe(concat('style.css'))
-	    .pipe(sourcemaps.write('.'))
-	    // moves the style.css file to public/styles
-	    .pipe(gulp.dest('./public/styles/'))
-	    .pipe(reload({stream: true}));
-
+		.pipe(sass())
+		.pipe(minifyCSS())
+		.pipe(concat('base.css'))
+		.pipe(autoprefixer('last 5 version', 'safari 5', 'ie 8', 'ie 9', 'opera 12.1'))
+		.pipe(sourcemaps.write('.'))
+		.pipe(gulp.dest('./'))
+		.pipe(reload({ stream: true }));
 });
 
-// manages the js files using babel
-gulp.task('scripts', () => {
-	gulp.src('./dev/scripts/main.js')
-	    .pipe(babel({
-	      	presets: ['es2015']
-	    }))
-	    .pipe(gulp.dest('./public/scripts'))
-	    .pipe(reload({stream: true}));
+gulp.task('scripts', function () {
+	return gulp.src('./scripts.js')
+		.pipe(plumber({
+		  errorHandler: notify.onError("Error: <%= error.message %>")
+		}))
+		.pipe(concat('main.min.js'))
+		.pipe(uglify())
+		.pipe(gulp.dest('./js'))
+		.pipe(reload({stream:true}));
 });
 
-// creates a local server
-gulp.task('browser-sync', () => {
-  browserSync.init({
-    server: '.'  
-  })
+// gulp.task('images', function () {
+// 	return gulp.src('./assets/**/*')
+// 		.pipe(imageMin())
+// 		.pipe(gulp.dest('./assets'));
+// });
+
+// configure which files to watch and what tasks to use on file changes
+gulp.task('watch', function() {
+	gulp.watch('styles/*.scss', ['styles']);
+	gulp.watch('./*.js', ['scripts']);
+	gulp.watch('./index.html', reload);
 });
 
-gulp.task('watch', () => {
-	// watches for changes and then runs tasks on it when it has changed
-	gulp.watch('./dev/styles/**/*.scss', ['styles']);
-	gulp.watch('./dev/scripts/*.js', ['scripts']);
-	gulp.watch('./public/*.html', reload);
-});
-
-gulp.task('default', ['browser-sync','styles', 'scripts', 'watch']);
+gulp.task('default', ['styles', 'scripts', 'bs', 'watch']);
