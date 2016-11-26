@@ -1,21 +1,16 @@
 @import 'setup';
-
-h1 {
-	color: purple;
-	background: black;
+html {
+    font-size: 62.5%;
 }
 
-html { 
-	font-size: 62.5%; 
-} 
+body {
+    font-size: 14px;
+    font-size: 1.4rem;
+}
 
-body { 
-	font-size: 14px; 
-	font-size: 1.4rem; 
-} 
-h1 { 
-	font-size: 24px; 
-	font-size: 2.4rem; 
+h1 {
+    font-size: 24px;
+    font-size: 2.4rem;
 }
 
 h1,
@@ -25,6 +20,6 @@ h4,
 p,
 ul,
 li {
-	padding: 0;
-	margin: 0;
+    padding: 0;
+    margin: 0;
 }
