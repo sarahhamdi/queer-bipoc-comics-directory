@@ -9,10 +9,27 @@
 
 <body>
 
-    <div class="container">
-        <h1>Heading 1</h1>
-        <h2>Heading 2</h2>
-    </div>
+    <main>
+        <form class="choose-comics">
+            <div class="checkbox">
+                <input type="checkbox" value="authorPoC" class="checkbox" id="checkbox-1">
+                <label for="checkbox-1">Author/Artist - POC</label>
+            </div>
+            <div class="checkbox">
+                <input type="checkbox" value="authorLGBTQ" class="checkbox" id="checkbox-2">
+                <label for="checkbox-2">Author/Artist - LGBTQ*</label>
+            </div>
+            <div class="checkbox">
+                <input type="checkbox" value="characterPoC" class="checkbox" id="checkbox-3">
+                <label for="checkbox-3">Character - POC</label>
+            </div>
+            <div class="checkbox">
+                <input type="checkbox" value="characterLGBTQ" class="checkbox" id="checkbox-4">
+                <label for="checkbox-4">Character - LGBTQ*</label>
+            </div>
+            <input type="submit" value="Find A Comic" id="submit">
+        </form>
+    </main>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="public/scripts/main.min.js"></script>
 
