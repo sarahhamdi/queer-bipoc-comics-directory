@@ -3,8 +3,9 @@
 let helpers = {};
 
 // +++++++ cleans up weird characters in the goodreads book descriptons +++++++
-helpers.cleanup = (string) => {
-    return string.replace(/&lt;\/*[a-z]*&gt;/g, "").replace(/&amp;/g, "&").replace(/&lt;br \/&gt;/g, " ");
+helpers.cleanup = (description) => {
+    let cleanDesc = String(description);
+    return cleanDesc.replace(/&lt;\/*[a-z]*&gt;/g, "").replace(/&amp;/g, "&").replace(/&lt;br \/&gt;/g, " ");
 };
 
 // +++++++ replaces goodreads rating with svg stars +++++++
@@ -50,10 +51,28 @@ helpers.bookcoversBlank = () => {
     });
 };
 
+// +++++++ initializes slider +++++++++++
+helpers.initSlider = () => {
+
+    let arraylength = sheetsu.filteredBooks.length - 1;
+    // increments the index until it reaches length of results array
+    // when that happens, initates slider (since all content is now loaded)
+    if (generic.index == arraylength) {
+        console.log('last book');
+        var mySwiper = new Swiper('.swiper-container', {
+            // Optional parameters
+            pagination: '.swiper-pagination',
+            paginationClickable: true,
+            loop: true
+        });
+    } else {
+        generic.index++;
+    }
+};
+
 // +++++++ resets and deletes data in slider when user resubmits form  +++++++
 helpers.resetSlider = () => {
-    $('.wrapper').empty();
-    // also recall all the classes from this that call to the slider
+    $('#wrapper').empty();
 };
 
 // +++++++ function to print all the content to page +++++++
@@ -84,10 +103,12 @@ helpers.printToPage = (grBooks) => {
         <p>${description}</p>
         <p><a href="${grlink}">Goodreads Rating</a></p>
         <p>${rating}</p>
-        <p><a href="${tpl}">Search TPL</a></p>`;
+        <p><a href="${tpl}"><img src="public/assets/tpl-logo.png"></a></p>`;
 
     // print to page
-    $('.wrapper').append('<div class="slide">' + printing + '</div>');
+    $('#wrapper').append('<div class="swiper-slide">' + printing + '</div>').addClass('swiper-wrapper');
+    $('#container').addClass('swiper-container');
+    $('#pagination').addClass('swiper-pagination');
     helpers.bookcoversBlank();
 
 };

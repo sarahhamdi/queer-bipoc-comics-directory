@@ -9,18 +9,21 @@ let comicsApp = {};
 // placeholders
 comicsApp.userInputArray = [];
 sheetsu.books = [];
+generic.index = 0;
 
 // api endpoints and keys
-sheetsu.endpoint = 'https://sheetsu.com/apis/v1.0/5fb1d566311d';
+sheetsu.endpoint = 'https://sheetsu.com/apis/v1.0/7bc7a770513b';
 goodreads.endpoint = 'https://www.goodreads.com/book/title.xml';
 goodreads.key = 'AYoaCzPGXisCTWsP6Ainw';
 
 // success and error messages
-generic.error = (data) => console.log(data);
+generic.error = (data) => {
+    console.log(`goodreads error ${data}`);
+    generic.index++;
+};
 goodreads.success = (grBooks) => {
-    // goodreads.books = grBooks;
-    console.log(grBooks.GoodreadsResponse.book);
     helpers.printToPage(grBooks);
+    helpers.initSlider();
 };
 sheetsu.success = (sBooks) => {
     sheetsu.filtered(sBooks);
@@ -39,7 +42,6 @@ sheetsu.filtered = (sBooks) => {
     sheetsu.filteredBooks.map(filteredBook => {
         console.log(filteredBook.bookTitle);
         goodreads.getData(filteredBook.bookTitle);
-        // helpers.tpl(filteredBook.bookTitle);
     });
 };
 
@@ -74,6 +76,7 @@ goodreads.getData = (sheetsuBookTitle) =>
 comicsApp.getUserInput = () => {
     $('.choose-comics').on('submit', function(event) {
         event.preventDefault();
+        generic.index = 0;
         comicsApp.userInputArray = [];
         helpers.resetSlider();
 
@@ -87,5 +90,7 @@ comicsApp.getUserInput = () => {
 
 // +++++++++ DOCUMENT READY ++++++++++++++++++++++
 $(function() {
+
     comicsApp.getUserInput();
+
 });
