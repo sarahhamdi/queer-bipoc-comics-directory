@@ -1,31 +1,31 @@
 {
-  "name": "sarah",
+  "name": "starter-website",
   "version": "1.0.0",
-  "description": "goodreads api website",
-  "main": "goodreads-comic-app.js",
+  "description": "starter website",
+  "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/sarahhamdi/Project-API-Comics.git"
-  },
-  "keywords": [
-    "goodreads",
-    "comics"
-  ],
-  "author": "sarah hamdi",
+  "author": "shamdi",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/sarahhamdi/Project-API-Comics/issues"
-  },
-  "homepage": "https://github.com/sarahhamdi/Project-API-Comics#readme",
   "devDependencies": {
-    "gulp-autoprefixer": "^3.1.0",
+    "babel-preset-es2015": "^6.18.0",
+    "browser-sync": "^2.17.5",
+    "eslint": "^3.11.0",
+    "eslint-config-google": "^0.7.0",
+    "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^3.1.1",
     "gulp-babel": "^6.1.2",
+    "gulp-clean-css": "^2.0.13",
     "gulp-concat": "^2.6.0",
-    "gulp-postcss": "^6.1.0",
-    "gulp-sass": "^2.2.0",
-    "gulp-sourcemaps": "^1.6.0"
+    "gulp-imagemin": "^3.1.0",
+    "gulp-jshint": "^2.0.2",
+    "gulp-notify": "^2.2.0",
+    "gulp-plumber": "^1.1.0",
+    "gulp-sass": "^2.3.2",
+    "gulp-sourcemaps": "^2.2.0",
+    "gulp-uglify": "^2.0.0",
+    "jshint": "^2.9.4",
+    "jshint-stylish": "^2.2.1"
   }
 }

@@ -1,0 +1,47 @@
+.swiper-slide {
+    display: flex;
+    .results-title,
+    h3,
+    h4 {
+        color: $blue-dark;
+    }
+}
+
+.swiper-pagination-bullet {
+    width: 20px;
+    height: 20px;
+    border-radius: 2px;
+    text-align: center;
+    line-height: 20px;
+    font-size: 12px;
+    color: #000;
+    opacity: 1;
+    background: rgba(0,0,0,0.2);
+}
+.swiper-pagination-bullet-active {
+    color:#fff;
+    background: $coral;
+}
+
+.flex-item-2 {
+    text-align: left;
+}
+
+.results-title {
+    margin: 0 0 10px 0;
+    padding: 0;
+    font-size: 4rem;
+    font-family: 'Amatic SC';
+}
+
+.bookcover {
+    margin: 0 20px 0 0;
+    border: 1px solid $blue-dark;
+    width: 300px;
+    box-shadow: 10px 10px 39px -4px rgba(204, 204, 204, 0.6);
+}
+
+.tpl {
+    width: 120px;
+}
+

@@ -1,0 +1,50 @@
+form.choose-comics {
+    display: flex;
+    @include flex (row wrap, space-around, flex-start);
+    margin-bottom: 50px;
+    #submit {
+        @include padding-margin (20px, 50px 0 0 0);
+        @include colors ($blue-dark, white);
+        border: 1px solid black;
+        width: 40%;
+        text-transform: uppercase;
+        border-radius: 3px;
+        cursor: pointer;
+        font-weight: 600;
+        font-size: 18px;
+        &:hover {
+            box-shadow: $shadow;
+        }
+        &:active {
+            box-shadow: none;
+        }
+        &:focus {
+            outline: none;
+        }
+    }
+    div.checkbox {
+        flex-basis: 50%;
+        text-align: center;
+        @include padding-margin (0, 10px auto);
+    }
+}
+
+input.checkbox {
+    display: none;
+    +label {
+        @include padding-margin (20px 0, 0 auto);
+        border: 1px solid black;
+        border-radius: 3px;
+        text-transform: uppercase;
+        cursor: pointer;
+        display: block;
+        width: 93%;
+    }
+    +label:hover {
+        @include colors ($blue-light, black);
+    }
+    &:checked+label {
+        @include colors ($blue-light, black);
+        border: 1px solid black;
+    }
+}

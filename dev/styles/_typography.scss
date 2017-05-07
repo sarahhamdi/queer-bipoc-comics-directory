@@ -1,0 +1,59 @@
+@import url('https://fonts.googleapis.com/css?family=Amatic+SC:700|Just+Another+Hand|Loved+by+the+King|Muli:300,400,600|Open+Sans:300,400,600|Quicksand:500,700|Sue+Ellen+Francisco');
+html {
+    font-size: 62.5%;
+}
+
+body {
+    font-size: 14px;
+    font-size: 1.4rem;
+    font-family: 'Muli';
+    font-weight: 400;
+}
+
+h1,
+h2,
+h3,
+h4,
+p,
+ul,
+li {
+    padding: 0;
+    margin: 0;
+}
+
+h1 {
+    font-size: 104px;
+    font-size: 9.6rem;
+    text-transform: uppercase;
+    color: $blue-dark;
+}
+
+h1 {
+    font-family: 'Amatic SC';
+}
+
+
+
+h2,
+.subtitle {
+    font-size: 18px;
+    margin: 35px 0 50px 0;
+    padding: 0 10%;
+}
+
+h2 {
+    font-size: 24px;
+}
+
+.subtitle {
+    color: #27d9d9;
+}
+p {
+    margin: 10px 0;
+    line-height: 150%;
+}
+
+a {
+    color: $coral;
+    text-decoration: none;
+}
