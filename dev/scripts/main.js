@@ -19,7 +19,7 @@ goodreads.key = 'AYoaCzPGXisCTWsP6Ainw';
 // success and error messages
 generic.error = (data) => {
     console.log(`goodreads error ${data}`);
-    generic.index++;
+    helpers.initSlider();
 };
 goodreads.success = (grBooks) => {
     helpers.printToPage(grBooks);
@@ -83,7 +83,6 @@ comicsApp.getUserInput = () => {
         $('input:checked').each(function() {
             comicsApp.userInputArray.push($(this).val());
         });
-
         sheetsu.getData();
     });
 };
@@ -94,3 +93,4 @@ $(function() {
     comicsApp.getUserInput();
 
 });
+

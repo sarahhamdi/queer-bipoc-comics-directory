@@ -3,15 +3,18 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>My Project</title>
-    <link rel="stylesheet" href="public/styles/style.css">
+    <title>Outside The Panels</title>
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.4.1/css/swiper.min.css">
+    <link rel="stylesheet" href="public/styles/style.css">
 </head>
 
 <body>
 
-
-    <main>
+    <header>
+        <h1>Outside The Panels</h1>
+        <h2>An LGBTQ* & POC Comics Database</h2>
+        <h3 class="subtitle">We think People of Colour and LGBTQ* makers and characters are important in comics. That’s why we built this tool to help you find them!</h3>
         <!-- form - user selection -->
         <form class="choose-comics">
             <div class="checkbox">
@@ -32,30 +35,31 @@
             </div>
             <input type="submit" value="Find A Comic" id="submit">
         </form>
-    </main>
+        <p class="small">POC = People of Colour</p>
+        <p class="small">LGBTQ* = Lesbian, Gay, Bisexual, Trans, Queer, Questioning, Intersex, 2 Spirit, Asexual, Pansexual</p>
+    </header>
 
     <!-- form results-->
-    <section id="results">
+    <main id="results">
         <div id="container">
-            <div id="wrapper">
-            </div>
-            <div id="pagination"></div>
+            <div id="wrapper"></div>
+            <div id ="pagination"></div>
         </div>
-    </section>
+    </main>
 
     <!-- credits -->
     <footer>
-        <p>Made with ♥ by <a href="http://sarahhamdi.com" target="_blank">Sarah Hamdi</a>, who wishes she could kick ass like a superhero but will settle for making websites.</p>
-        <p>Comic contributions from Cindy Ma, Heather Mawby, Keira Mawby, May El-Abdallah, Koom Kanishkan, and David Missio.</p>
+        <p>Made with ♥ by <a href="http://sarahhamdi.com" target="_blank">Sarah Hamdi</a>, who is not-so-secretly a vampire slayer.</p>
+        <p>Comic contributions from the Scoobies: Cindy Ma, Heather Mawby, Keira Mawby, May El-Abdallah, and David Missio.</p>
         <p>This site uses <a href="https://sheetsu.com/">Sheetsu</a> + the <a href="https://www.goodreads.com/api">Goodreads</a> & <a href="https://openlibrary.org/dev/docs/api/covers" target="_blank">Open Library</a> APIs.
         </p>
     </footer>
 
     <!--scripts-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-    <script src="public/scripts/main.min.js"></script>
-    <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.4.1/js/swiper.min.js"></script>-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.4.1/js/swiper.min.js"></script>
+    <script src="public/scripts/main.min.js"></script>
+    
 
 </body>
 
