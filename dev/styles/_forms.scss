@@ -67,6 +67,16 @@
 //     }
 // }
 
+.choose-comics {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    align-items: baseline;
+}
+
+.dropdown-container {
+    // display: inline-block;
+}
 #submit {
     @include padding-margin (20px, 50px 0 0 0);
     background: linear-gradient(-79deg, #EEA8F9 0%, #c5f4f5 100%);
@@ -92,10 +102,10 @@
 
 #dropdown {
     @include padding-margin (20px 0, 0);
-    text-transform: uppercase;
+    // text-transform: uppercase;
     cursor: pointer;
     display: block;
-    width: 300px;
+    width: 500px;
     background: palette(background, body);
     $gradient: linear-gradient(45deg, pink, skyblue);
     box-shadow: none;
@@ -106,8 +116,8 @@
     box-shadow: 0 3px 13px 0 rgba(73,69,72,0.17);
     &:after {
         position: absolute;
-        top: -4px; bottom: -4px;
-        left: -4px; right: -4px;
+        top: -2px; bottom: -2px;
+        left: -2px; right: -2px;
         background: linear-gradient(-79deg, #EEA8F9 0%, #c5f4f5 100%);
         content: '';
         z-index: -1;
@@ -120,7 +130,8 @@
 
 .dropdown {
     &--options {
-        width: 300px;
+        width: 500px;
+        text-align: left;
     }
 }
 
@@ -133,19 +144,20 @@ input.checkbox {
         text-transform: uppercase;
         cursor: pointer;
         display: block;
-        width: 300px;
+        width: 500px;
         background: palette(background, body);
         $gradient: linear-gradient(45deg, pink, skyblue);
         box-shadow: none;
         border: none;
         color: black;
+        text-transform: none;
         border-radius: 2px;
         position: relative;
         box-shadow: 0 3px 13px 0 rgba(73,69,72,0.17);
         &:after {
             position: absolute;
-            top: -4px; bottom: -4px;
-            left: -4px; right: -4px;
+            top: -2px; bottom: -2px;
+            left: -2px; right: -2px;
             background: linear-gradient(-79deg, #EEA8F9 0%, #c5f4f5 100%);
             content: '';
             z-index: -1;
@@ -154,37 +166,45 @@ input.checkbox {
         &:before {
             content: '';
             margin-right: 10px;
+            margin-left:30px;
             display: inline-block;
             vertical-align: text-top;
             width: 20px;
             height: 20px;
-            background: yellow;
-            border:  none;
+            // background: yellow;
+            border:  1px solid pink;
         }
-        &:hover &:before {
-        background: #f35429;
-        border:  none;
+        &:hover  {
+            &:before {
+                background: pink;
+            }
+        
         }
     }
     
     &:focus + .label:before {
         box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.12);
     }
+    
+    // when checked...
     &:checked + .label:before {
-        background: #f35429;
+        background: pink;
     }
-    &:checked+label {
-        @include colors ($blue-light, black);
-        border: 1px solid black;
+    &:checked + label {
+        // background: $yellow-light;
+        // border: 1px solid black;
     }
     &:checked + .label:after {
-        content: '';
-        position: absolute;
-        left: 5px;
-        top: 9px;
-        background: black;
-        width: 2px;
-        height: 2px;
+    content: '';
+    margin-right: 10px;
+    position: absolute;
+    left: 36px;
+    z-index: 20;
+    top: 30px;
+    /* background: #1a1a1a; */
+    width: 2px;
+    height: 2px;
+    border-radius: 0;
         box-shadow: 
           2px 0 0 white,
           4px 0 0 white,
@@ -196,6 +216,7 @@ input.checkbox {
         }
 
 }
+
 
 
 .show {
