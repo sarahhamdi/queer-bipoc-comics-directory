@@ -1,0 +1,83 @@
+// COLOURS
+
+// Greys
+$white          : rgba(255, 255, 255, 1.00);
+$grey           : #adadad;
+$aluminium      : rgba(155, 155, 155, .30);
+$black          : #222222;
+
+// Others
+$yellow-light		: rgba(255, 250, 206, 1.00);
+$yellow					: rgba(251, 243, 170, 1.00);
+$yellow-dark		: rgba(225, 195, 85, 1.00);
+$pastel-violet	: rgba(202, 147, 206, 1.00);
+$seance         : rgba(114, 13, 135, 1.00);
+$blue-light			: rgba(159, 255, 255, 1.00);
+$blue-dark			: rgba(30, 44, 60, 1.00);
+$shadow					: rgba(59, 4, 4, 1);
+
+$gradient       : radial-gradient(circle farthest-corner at right bottom,#ffd08a 0,#ffa376 28%,#d26578 52%,#682a84 79%,#241668 100%);
+$box-shadow     : 0 11px 16px 0 rgba(0,0,0,0.4);
+
+
+// Colour map
+// to reference colour map: e.g. color: palette(text, primary);
+$palettes: (
+  base: (
+    lines       : $blue-dark
+  ),
+
+  text: (
+    primary     : $white,
+    heading     : $seance,
+    link        : $blue-light,
+    link-hover  : $blue-dark,
+    inverted    : $black,
+    highlight   : $blue-light
+  ),
+
+  background: (
+    dark        : $black,
+    body        : $white,
+    gradient    : $gradient
+  )
+);
+
+ // Z-INDEXES
+
+$zindex-minus1  : -1000;
+$zindex-plus1   : 1000;
+$zindex-2       : 2000;
+$zindex-3       : 3000;
+
+
+// FUNCTIONS
+
+// get colours from the colour map
+@function palette($palette, $tone: 'base') {
+    @return map-get(map-get($palettes, $palette), $tone);
+}
+
+// MIXINS
+
+// Font-size in REMS
+@mixin fontSize($sizeValue) {
+    font-size: $sizeValue * 1px;
+    font-size: ($sizeValue/10) * 1rem;
+}
+
+@mixin padding-margin ($padding, $margin) {
+    padding: $padding;
+    margin: $margin;
+}
+
+@mixin colors ($background, $color) {
+    background: $background;
+    color: $color;
+}
+
+@mixin flex ($flexflow, $justify-content, $align-content) {
+    flex-flow: $flexflow;
+    justify-content: $justify-content;
+    align-content: $align-content
+}

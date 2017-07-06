@@ -33,10 +33,39 @@
                 <input type="checkbox" value="characterLGBTQ" class="checkbox" id="checkbox-4">
                 <label for="checkbox-4">Character - LGBTQ*</label>
             </div>
-            <input type="submit" value="Find A Comic" id="submit">
+            <input type="submit" value="Find Comics" id="submit">
         </form>
         <p class="small">POC = People of Colour</p>
         <p class="small">LGBTQ* = Lesbian, Gay, Bisexual, Trans, Queer, Questioning, Intersex, 2 Spirit, Asexual, Pansexual</p>
+
+
+        <div class="container">
+          <button class="dropdown" id="dropdown">
+            I want this:
+          </button>
+          <form class="choose-comics">
+            <div class="dropdown--options">
+              <div class="checkbox--container">
+                <input type="checkbox" value="authorPoC" class="checkbox" id="checkbox-1">
+                <label class="label" for="checkbox-1">Author/Artist - POC</label>
+              </div>
+              <div class="checkbox--container">
+                  <input type="checkbox" value="authorLGBTQ" class="checkbox" id="checkbox-2">
+                  <label class="label" for="checkbox-2">Author/Artist - LGBTQ*</label>
+              </div>
+              <div class="checkbox--container">
+                  <input type="checkbox" value="characterPoC" class="checkbox" id="checkbox-3">
+                  <label class="label" for="checkbox-3">Character - POC</label>
+              </div>
+              <div class="checkbox--container">
+                  <input type="checkbox" value="characterLGBTQ" class="checkbox" id="checkbox-4">
+                  <label class="label" for="checkbox-4">Character - LGBTQ*</label>
+              </div>
+             </div> <!-- dropdown--options -->
+             <input type="submit" value="Find A Comic" id="submit">
+          </form> <!-- choose-comics -->
+        </div> <!-- container -->
+
     </header>
 
     <!-- form results-->
@@ -49,9 +78,9 @@
 
     <!-- credits -->
     <footer>
-        <p>Made with ♥ by <a href="http://sarahhamdi.com" target="_blank">Sarah Hamdi</a>, who is not-so-secretly a vampire slayer.</p>
-        <p>Comic contributions from the Scoobies: Cindy Ma, Heather Mawby, Keira Mawby, May El-Abdallah, and David Missio.</p>
-        <p>This site uses <a href="https://sheetsu.com/">Sheetsu</a> + the <a href="https://www.goodreads.com/api">Goodreads</a> & <a href="https://openlibrary.org/dev/docs/api/covers" target="_blank">Open Library</a> APIs.
+        <p class="small">Made with ♥ by <a href="http://sarahhamdi.com" target="_blank">Sarah Hamdi</a>, who is not-so-secretly a vampire slayer.</p>
+        <p class="small">Comic contributions from the Scoobies: Cindy Ma, Heather Mawby, Keira Mawby, May El-Abdallah, and David Missio.</p>
+        <p class="small">This site uses <a href="https://sheetsu.com/">Sheetsu</a> + the <a href="https://www.goodreads.com/api">Goodreads</a> & <a href="https://openlibrary.org/dev/docs/api/covers" target="_blank">Open Library</a> APIs.
         </p>
     </footer>
 
@@ -64,3 +93,7 @@
 </body>
 
 </html>
+
+
+
+

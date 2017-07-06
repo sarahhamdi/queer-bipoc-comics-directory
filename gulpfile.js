@@ -7,7 +7,7 @@ const browserSync = require('browser-sync').create();
 const reload = browserSync.reload;
 const jshint = require('gulp-jshint');
 const autoprefixer = require('gulp-autoprefixer');
-// const imageMin = require('gulp-imagemin');
+const imageMin = require('gulp-imagemin');
 const minifyCSS = require('gulp-clean-css');
 const notify = require('gulp-notify');
 const plumber = require('gulp-plumber');
@@ -55,11 +55,11 @@ gulp.task('scripts', function() {
 });
 
 // task: assets
-// gulp.task('assets', function() {
-//     return gulp.src('dev/assets/**/*')
-//         .pipe(imageMin())
-//         .pipe(gulp.dest('public/assets'));
-// });
+gulp.task('assets', function() {
+    return gulp.src('dev/assets/**/*')
+        .pipe(imageMin())
+        .pipe(gulp.dest('public/assets'));
+});
 
 // task: watch
 gulp.task('watch', () => {
@@ -69,4 +69,4 @@ gulp.task('watch', () => {
 });
 
 // task: watch global 
-gulp.task('default', ['browser-sync', 'watch', 'styles', 'scripts']);
+gulp.task('default', ['browser-sync', 'styles', 'scripts', 'watch']);

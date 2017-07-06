@@ -134,10 +134,10 @@ helpers.printToPage = (grBooks) => {
         </div>`;
 
     // print to page
-    helpers.bookcoversBlank();
     $('#wrapper').append('<div class="swiper-slide">' + printing + '</div>').addClass('swiper-wrapper');
     $('#container').addClass('swiper-container');
     $('#pagination').addClass('swiper-pagination');
+    helpers.bookcoversBlank();
     
 
 };
