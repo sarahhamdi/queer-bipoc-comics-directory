@@ -1,11 +1,19 @@
 @import 'setup';
-@import 'colors';
-@import 'mixins';
+@import 'utils';
 @import 'typography';
 @import 'forms';
-@import 'header';
+@import 'layouts';
 @import 'slider';
-@import 'footer';
+@import 'media-queries';
+
+html {
+    font-size: 62.5%;
+}
+
+img {
+	width: 100%;
+}
+
 header,
 footer,
 main {
@@ -33,3 +41,4 @@ body {
     color: $blue-dark;
     position: relative;
 }
+

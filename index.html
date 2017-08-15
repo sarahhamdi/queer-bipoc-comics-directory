@@ -15,28 +15,41 @@
         <h1>Outside The Panels</h1>
         <h2>An LGBTQ* & POC Comics Database</h2>
         <h3 class="subtitle">We think People of Colour and LGBTQ* makers and characters are important in comics. That’s why we built this tool to help you find them!</h3>
-        <!-- form - user selection -->
-        <form class="choose-comics">
-            <div class="checkbox">
-                <input type="checkbox" value="authorPoC" class="checkbox" id="checkbox-1">
-                <label for="checkbox-1">Author/Artist - POC</label>
+
+        <div class="container">
+
+          <form class="choose-comics">
+          <div class="dropdown--container">
+          
+          <button class="dropdown" id="dropdown">
+            I only want comics that have:
+          </button>
+            <div class="dropdown--options">
+              <div class="checkbox--container">
+                <input type="checkbox" value="authorpoc" class="checkbox" id="checkbox-1">
+                <label class="label" for="checkbox-1">Artists/Authors of Colour</label>
+              </div>
+              <div class="checkbox--container">
+                  <input type="checkbox" value="characterpoc" class="checkbox" id="checkbox-2">
+                  <label class="label" for="checkbox-2">Characters of Colour</label>
+              </div>
+              <div class="checkbox--container">
+                  <input type="checkbox" value="authorlgbtq" class="checkbox" id="checkbox-3">
+                  <label class="label" for="checkbox-3">LGBTQ* Artists/Authors</label>
+              </div>
+              <div class="checkbox--container">
+                  <input type="checkbox" value="characterlgbtq" class="checkbox" id="checkbox-4">
+                  <label class="label" for="checkbox-4">LGBTQ* Characters</label>
+              </div>
+             </div> <!-- dropdown--options -->
             </div>
-            <div class="checkbox">
-                <input type="checkbox" value="authorLGBTQ" class="checkbox" id="checkbox-2">
-                <label for="checkbox-2">Author/Artist - LGBTQ*</label>
-            </div>
-            <div class="checkbox">
-                <input type="checkbox" value="characterPoC" class="checkbox" id="checkbox-3">
-                <label for="checkbox-3">Character - POC</label>
-            </div>
-            <div class="checkbox">
-                <input type="checkbox" value="characterLGBTQ" class="checkbox" id="checkbox-4">
-                <label for="checkbox-4">Character - LGBTQ*</label>
-            </div>
-            <input type="submit" value="Find A Comic" id="submit">
-        </form>
+             <input type="submit" value="Find A Comic" id="submit">
+          </form> <!-- choose-comics -->
+        </div> <!-- container -->
+
         <p class="small">POC = People of Colour</p>
         <p class="small">LGBTQ* = Lesbian, Gay, Bisexual, Trans, Queer, Questioning, Intersex, 2 Spirit, Asexual, Pansexual</p>
+
     </header>
 
     <!-- form results-->
@@ -49,9 +62,9 @@
 
     <!-- credits -->
     <footer>
-        <p>Made with ♥ by <a href="http://sarahhamdi.com" target="_blank">Sarah Hamdi</a>, who is not-so-secretly a vampire slayer.</p>
-        <p>Comic contributions from the Scoobies: Cindy Ma, Heather Mawby, Keira Mawby, May El-Abdallah, and David Missio.</p>
-        <p>This site uses <a href="https://sheetsu.com/">Sheetsu</a> + the <a href="https://www.goodreads.com/api">Goodreads</a> & <a href="https://openlibrary.org/dev/docs/api/covers" target="_blank">Open Library</a> APIs.
+        <p class="small">Made with ♥ by <a href="http://sarahhamdi.com" target="_blank">Sarah Hamdi</a>, who is not-so-secretly a vampire slayer.</p>
+        <p class="small">Comic contributions from the Scoobies: Cindy Ma, Heather Mawby, Keira Mawby, May El-Abdallah, and David Missio.</p>
+        <p class="small">This site uses <a href="https://sheetsu.com/">Sheetsu</a> + the <a href="https://www.goodreads.com/api">Goodreads</a> & <a href="https://openlibrary.org/dev/docs/api/covers" target="_blank">Open Library</a> APIs.
         </p>
     </footer>
 
@@ -64,3 +77,7 @@
 </body>
 
 </html>
+
+
+
+

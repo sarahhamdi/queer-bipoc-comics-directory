@@ -1,50 +1,149 @@
-form.choose-comics {
+
+.choose-comics {
     display: flex;
-    @include flex (row wrap, space-around, flex-start);
+    flex-flow: row wrap;
+    justify-content: space-around;
+    align-items: baseline;
     margin-bottom: 50px;
-    #submit {
-        @include padding-margin (20px, 50px 0 0 0);
-        @include colors ($blue-dark, white);
-        border: 1px solid black;
-        width: 40%;
-        text-transform: uppercase;
-        border-radius: 3px;
-        cursor: pointer;
-        font-weight: 600;
-        font-size: 18px;
-        &:hover {
-            box-shadow: $shadow;
-        }
-        &:active {
-            box-shadow: none;
-        }
-        &:focus {
-            outline: none;
-        }
+}
+
+
+
+#submit {
+    @include padding-margin (20px, 50px 0 0 0);
+    background: linear-gradient(-79deg, #EEA8F9 0%, #c5f4f5 100%);
+    border: none;
+    box-shadow: 0 3px 13px 0 rgba(73,69,72,0.17);
+    color: palette(text, heading);
+    letter-spacing: 1px;
+    width: 300px;
+    text-transform: uppercase;
+    border-radius: 3px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 18px;
+    &:hover {
+        box-shadow: $shadow;
     }
-    div.checkbox {
-        flex-basis: 50%;
-        text-align: center;
-        @include padding-margin (0, 10px auto);
+    &:active {
+        box-shadow: none;
+    }
+    &:focus {
+        outline: none;
     }
 }
 
+#dropdown {
+    @include padding-margin (20px 0, 0);
+    cursor: pointer;
+    display: block;
+    width: 500px;
+    background: palette(background, body);
+    box-shadow: none;
+    border: none;
+    color: black;
+    position: relative;
+    box-shadow: 0 3px 13px 0 rgba(73,69,72,0.17);
+    &:focus {
+        outline: none;
+    }
+}
+
+.dropdown {
+    &--options {
+        width: 500px;
+        text-align: left;
+    }
+}
+
+
 input.checkbox {
     display: none;
-    +label {
+    + .label,
+     {
         @include padding-margin (20px 0, 0 auto);
-        border: 1px solid black;
-        border-radius: 3px;
         text-transform: uppercase;
         cursor: pointer;
         display: block;
-        width: 93%;
+        width: 500px;
+        background: palette(background, body);
+        $gradient: linear-gradient(45deg, pink, skyblue);
+        box-shadow: none;
+        color: black;
+        text-transform: none;
+        position: relative;
+        box-shadow: 0 3px 13px 0 rgba(73,69,72,0.17);
+        &:before {
+            content: '';
+            margin-right: 10px;
+            margin-left: 27%;
+            display: inline-block;
+            vertical-align: text-top;
+            width: 20px;
+            height: 20px;
+            border:  1px solid pink;
+        }
+        &:hover  {
+            &:before {
+                background: pink;
+            }
+        
+        }
     }
-    +label:hover {
-        @include colors ($blue-light, black);
+    
+    &:focus + .label:before {
+        box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.12);
     }
-    &:checked+label {
-        @include colors ($blue-light, black);
-        border: 1px solid black;
+    
+    // when checked...
+    &:checked + .label:before {
+        background: pink;
     }
+    &:checked + .label:after {
+    content: '';
+    margin-right: 10px;
+    position: absolute;
+    left: 28%;
+    z-index: 20;
+    top: 30px;
+    background: white;
+    width: 2px;
+    height: 2px;
+    border-radius: 0;
+    box-shadow: 
+      2px 0 0 white,
+      4px 0 0 white,
+      4px -2px 0 white,
+      4px -4px 0 white,
+      4px -6px 0 white,
+      4px -8px 0 white;
+    transform: rotate(45deg);
+    }
+}
+
+.change-border-bottom {
+  border-bottom: 1px solid lightgray;
+}
+
+.dropdown--container {
+    position: relative;
+        &:after {
+        position: absolute;
+        top: -2px; bottom: -2px;
+        left: -2px; right: -2px;
+        background: linear-gradient(-79deg, #EEA8F9 0%, #c5f4f5 100%);
+        content: '';
+        z-index: -1;
+        border-radius: 3px;
+    }
+}
+
+.dropdown--options {
+   display: none; 
+}
+.hide {
+    display: none;
+}
+.show {
+  display: block;
 }

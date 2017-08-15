@@ -12,7 +12,7 @@ sheetsu.books = [];
 generic.index = 0;
 
 // api endpoints and keys
-sheetsu.endpoint = 'https://sheetsu.com/apis/v1.0/7bc7a770513b';
+sheetsu.endpoint = 'https://sheetlabs.com/SARA/comicslgbtqpoc?';
 goodreads.endpoint = 'https://www.goodreads.com/book/title.xml';
 goodreads.key = 'AYoaCzPGXisCTWsP6Ainw';
 
@@ -27,6 +27,7 @@ goodreads.success = (grBooks) => {
 };
 sheetsu.success = (sBooks) => {
     sheetsu.filtered(sBooks);
+    console.log("working?");
 };
 
 // +++++++++ FILTERING SHEETSU DATA BASED ON USER INPUT - THANKS WES BOS! ++++++++++++++++++++++
@@ -37,18 +38,23 @@ sheetsu.filtered = (sBooks) => {
         // that have the 'key' value of that selection as 'y' (e.g. 'authorLGBTQ' = 'y')
         comicsApp.userInputArray.every(arrayItem =>
             // uses bracket notation bc you can't use dot notation when using array results with objects
-            book[arrayItem] === 'y'));
+            book[arrayItem] === "1"));
 
     sheetsu.filteredBooks.map(filteredBook => {
         console.log(filteredBook.bookTitle);
-        goodreads.getData(filteredBook.bookTitle);
+        goodreads.getData(filteredBook.booktitle);
     });
-};
+}; 
 
 // +++++++++ API CALLS ++++++++++++++++++++++
 sheetsu.getData = () =>
     $.ajax({
+        // http may be used instead of https if required
         url: sheetsu.endpoint,
+        crossDomain : true,
+        beforeSend: function(xhr, settings) {
+          xhr.setRequestHeader("Authorization","Basic "+btoa("s.hamdi@gmail.com:t_a1ae6e22b56cf1358a57c229a018dd93"));
+        },
         dataType: 'json',
         type: 'GET',
         success: sheetsu.success,
@@ -74,7 +80,9 @@ goodreads.getData = (sheetsuBookTitle) =>
 
 // // +++++++++ EVENT HANDLER FOR USER INPUT ++++++++++++++++++++++
 comicsApp.getUserInput = () => {
+    helpers.dropdownCollapseExpand();
     $('.choose-comics').on('submit', function(event) {
+        $('#results').addClass('show');
         event.preventDefault();
         generic.index = 0;
         comicsApp.userInputArray = [];
@@ -89,8 +97,5 @@ comicsApp.getUserInput = () => {
 
 // +++++++++ DOCUMENT READY ++++++++++++++++++++++
 $(function() {
-
     comicsApp.getUserInput();
-
 });
-

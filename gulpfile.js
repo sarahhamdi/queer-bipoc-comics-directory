@@ -69,4 +69,4 @@ gulp.task('watch', () => {
 });
 
 // task: watch global 
-gulp.task('default', ['browser-sync', 'watch', 'styles', 'scripts', 'assets']);
+gulp.task('default', ['browser-sync', 'styles', 'scripts', 'watch']);

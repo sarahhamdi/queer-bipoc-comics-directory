@@ -1,0 +1,41 @@
+body {
+    background: palette(background, gradient);
+    background: url('/public/assets/background.png');
+    background: #FFEBEB;
+}
+
+
+header,
+footer {
+    text-align: center;
+}
+header,
+footer,
+main {
+    max-width: 960px;
+    padding: 0;
+    margin: 0 auto;
+}
+
+header {
+    padding-top: 30px;
+}
+
+footer {
+    padding-bottom: 50px;
+}
+
+main {
+    padding: 75px 50px;
+    display: none;
+}
+
+#wrapper {
+    margin: 0 0 50px 0;
+}
+
+body {
+    color: $blue-dark;
+    position: relative;
+}
+
