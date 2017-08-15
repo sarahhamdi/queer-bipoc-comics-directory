@@ -4,7 +4,7 @@ let helpers = {};
 
 // +++++++ cleans up goodreads book descriptons +++++++
 helpers.cleanup = (description) => {
-    let emptyDesc = "Description not available, sorry! It's probably 🔥 though."
+    let emptyDesc = "Description not available, sorry! It's probably 🔥 though.";
     let cleanDesc = String(description);
     // cleans up weird characters
     cleanDesc = helpers.replaceWeirdChars(cleanDesc);
@@ -15,21 +15,21 @@ helpers.cleanup = (description) => {
     else truncate the description before it is printed
     **********************************/
     if  (cleanDesc == "[object Object]")
-        return cleanDesc = emptyDesc; 
+        cleanDesc = emptyDesc; 
         return cleanDesc;
 };
 
 // +++++++ cleans up weird/html characters in large amounts of text +++++++
 helpers.replaceWeirdChars = (string) => {
-    return string.replace(/&lt;\/*[a-z]*&gt;/g, "").replace(/&amp;/g, "&").replace(/&lt;br \/&gt;/g, " ").replace(/<br \/>/g, " ")
-}
+    return string.replace(/&lt;\/*[a-z]*&gt;/g, "").replace(/&amp;/g, "&").replace(/&lt;br \/&gt;/g, " ").replace(/<br \/>/g, " ");
+};
 
 // +++++++ cleans up weird/html characters in large amounts of text +++++++
 helpers.truncateDesc = (string) => {
     if (string.length > 600)
         return `${string.slice(0, 600)} ...`;
         return string;
-}
+};
 
 // +++++++ replaces goodreads rating with svg stars +++++++
 helpers.rating = (bookRating) => {
@@ -99,6 +99,14 @@ helpers.resetSlider = () => {
     $('.swiper-pagination').empty();
 };
 
+// +++++++ expands and collapses dropdown when clicked  +++++++
+helpers.dropdownCollapseExpand = () => {
+    $('#dropdown').on('click', function(event) {
+        event.preventDefault();
+        $('.dropdown--options').toggleClass('show');
+    });
+};
+
 // +++++++ function to print all the content to page +++++++
 helpers.printToPage = (grBooks) => {
     let books = grBooks.GoodreadsResponse.book;
@@ -128,7 +136,7 @@ helpers.printToPage = (grBooks) => {
             <h3>By: ${makers}</h3>
             <h4>Publisher: ${publisher}</h4>
             <p class="results-description">${description}</p>
-            <p class="results-link"><a href="${grlink}">Goodreads Rating</a></p>
+            <p class="results-link"><a href="${grlink}">Read more on Goodreads</a></p>
             <p>${rating}</p>
             <p><a href="${tpl}"><img src="public/assets/tpl-logo.png" class="tpl"></a></p>
         </div>`;
@@ -138,6 +146,4 @@ helpers.printToPage = (grBooks) => {
     $('#container').addClass('swiper-container');
     $('#pagination').addClass('swiper-pagination');
     helpers.bookcoversBlank();
-    
-
 };

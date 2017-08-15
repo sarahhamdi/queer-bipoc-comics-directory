@@ -13,7 +13,9 @@ $yellow-dark		: rgba(225, 195, 85, 1.00);
 $pastel-violet	: rgba(202, 147, 206, 1.00);
 $seance         : rgba(114, 13, 135, 1.00);
 $blue-light			: rgba(159, 255, 255, 1.00);
+$blue           : rgba(18, 43, 238, 1.00);
 $blue-dark			: rgba(30, 44, 60, 1.00);
+$scarlet        : rgba(255, 41, 76, 1.00);
 $shadow					: rgba(59, 4, 4, 1);
 
 $gradient       : radial-gradient(circle farthest-corner at right bottom,#ffd08a 0,#ffa376 28%,#d26578 52%,#682a84 79%,#241668 100%);
@@ -30,8 +32,8 @@ $palettes: (
   text: (
     primary     : $white,
     heading     : $seance,
-    link        : $blue-light,
-    link-hover  : $blue-dark,
+    link        : $scarlet,
+    link-hover  : $shadow,
     inverted    : $black,
     highlight   : $blue-light
   ),
