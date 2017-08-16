@@ -7,6 +7,10 @@
     }
 }
 
+#pagination {
+    bottom: 0;
+}
+
 .swiper-pagination-bullet {
     width: 20px;
     height: 20px;
@@ -23,11 +27,13 @@
     background: palette(text, link);
 }
 
+.swiper-container-horizontal>.swiper-pagination-bullets .swiper-pagination-bullet {
+    margin: 0 5px 5px 5px;
+}
+
 .flex-item-2 {
     text-align: left;
 }
-
-
 
 .bookcover {
     margin: 0 20px 0 0;

@@ -3,12 +3,12 @@
 let helpers = {};
 
 // +++++++ cleans up goodreads book descriptons +++++++
-helpers.cleanup = (description) => {
+helpers.cleanup = (description, grlink) => {
     let emptyDesc = "Description not available, sorry! It's probably 🔥 though.";
     let cleanDesc = String(description);
     // cleans up weird characters
     cleanDesc = helpers.replaceWeirdChars(cleanDesc);
-    cleanDesc = helpers.truncateDesc(cleanDesc);
+    cleanDesc = helpers.truncateDesc(cleanDesc, grlink);
     /********************************** 
     if there is no description for this book (object Object)
     then replace the description with a message
@@ -25,10 +25,10 @@ helpers.replaceWeirdChars = (string) => {
 };
 
 // +++++++ cleans up weird/html characters in large amounts of text +++++++
-helpers.truncateDesc = (string) => {
+helpers.truncateDesc = (string, grlink) => {
     if (string.length > 600)
-        return `${string.slice(0, 600)} ...`;
-        return string;
+        return `${string.slice(0, 600)} ... <a href="${grlink}">Read more.</a>`;
+        return `${string}<p><a href="${grlink}">View on Goodreads.</a></p>`;
 };
 
 // +++++++ replaces goodreads rating with svg stars +++++++
@@ -113,7 +113,7 @@ helpers.printToPage = (grBooks) => {
     let title = books.title;
     let tpl = helpers.tpl(books.isbn);
     let bookcover = helpers.bookcovers(books.image_url, books.isbn);
-    let description = helpers.cleanup(books.description);
+    let description = helpers.cleanup(books.description, books.link);
     let rating = helpers.rating(books.average_rating);
     let grlink = books.link;
     // publisher - cleans up publisher in case it comes back as [object object]
@@ -136,9 +136,9 @@ helpers.printToPage = (grBooks) => {
             <h3>By: ${makers}</h3>
             <h4>Publisher: ${publisher}</h4>
             <p class="results-description">${description}</p>
-            <p class="results-link"><a href="${grlink}">Read more on Goodreads</a></p>
+            <p class="results-rating">Goodreads Rating</p>
             <p>${rating}</p>
-            <p><a href="${tpl}"><img src="public/assets/tpl-logo.png" class="tpl"></a></p>
+            <p><a href="${tpl}">Find at the <img src="public/assets/tpl-logo.svg" class="tpl"></a></p>
         </div>`;
 
     // print to page

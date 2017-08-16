@@ -83,6 +83,7 @@ comicsApp.getUserInput = () => {
     helpers.dropdownCollapseExpand();
     $('.choose-comics').on('submit', function(event) {
         $('#results').addClass('show');
+        $('.dropdown--options').removeClass('show');
         event.preventDefault();
         generic.index = 0;
         comicsApp.userInputArray = [];

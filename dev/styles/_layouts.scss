@@ -4,7 +4,6 @@ body {
     background: #FFEBEB;
 }
 
-
 header,
 footer {
     text-align: center;
@@ -18,7 +17,7 @@ main {
 }
 
 header {
-    padding-top: 30px;
+    margin: 20px auto 0 auto;
 }
 
 footer {
@@ -26,7 +25,7 @@ footer {
 }
 
 main {
-    padding: 75px 50px;
+    padding: 50px;
     display: none;
 }
 
