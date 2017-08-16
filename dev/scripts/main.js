@@ -80,10 +80,13 @@ goodreads.getData = (sheetsuBookTitle) =>
 
 // // +++++++++ EVENT HANDLER FOR USER INPUT ++++++++++++++++++++++
 comicsApp.getUserInput = () => {
+    
     helpers.dropdownCollapseExpand();
+
     $('.choose-comics').on('submit', function(event) {
         $('#results').addClass('show');
         $('.dropdown--options').removeClass('show');
+        $('.footer').removeClass('fixed');
         event.preventDefault();
         generic.index = 0;
         comicsApp.userInputArray = [];
@@ -99,4 +102,5 @@ comicsApp.getUserInput = () => {
 // +++++++++ DOCUMENT READY ++++++++++++++++++++++
 $(function() {
     comicsApp.getUserInput();
+    helpers.smoothScroll();
 });

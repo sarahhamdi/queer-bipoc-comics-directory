@@ -138,7 +138,7 @@ helpers.printToPage = (grBooks) => {
             <p class="results-description">${description}</p>
             <p class="results-rating">Goodreads Rating</p>
             <p>${rating}</p>
-            <p><a href="${tpl}">Find at the <img src="public/assets/tpl-logo.svg" class="tpl"></a></p>
+            <p><a href="${tpl}"><img src="public/assets/tpl-logo.svg" class="tpl"></a></p>
         </div>`;
 
     // print to page
@@ -147,3 +147,18 @@ helpers.printToPage = (grBooks) => {
     $('#pagination').addClass('swiper-pagination');
     helpers.bookcoversBlank();
 };
+
+helpers.smoothScroll = () => {
+    $('a[href*="#"]:not([href="#"])').click(function() {
+      if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
+        var target = $(this.hash);
+        target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
+        if (target.length) {
+          $('html, body').animate({
+            scrollTop: target.offset().top
+          }, 1000);
+          return false;
+        }
+      }
+    });
+  };

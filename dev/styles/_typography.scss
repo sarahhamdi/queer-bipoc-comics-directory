@@ -9,7 +9,7 @@ $font-weight--light     : 300;
 $font-weight--normal    : 400;
 $font-weight--bold      : 700;
 
-$base__line-height: 1.7rem;
+$base__line-height: 150%;
 
 // TYPOGRAPHY
 
@@ -33,7 +33,7 @@ li {
 }
 
 h1 {
-    margin: 0 0 40px 0;
+    margin: 0 0 20px 0;
     font-size: 10.4rem;
     font-size: 9.6rem;
     text-transform: uppercase;
