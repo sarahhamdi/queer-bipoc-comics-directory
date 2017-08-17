@@ -8,7 +8,8 @@
 
   header,
   footer {
-    padding: 0 24px;
+    padding-left: 24px;
+    padding-right: 24px;
   }
 
   h2,
@@ -23,7 +24,6 @@
   }
 
   .flex-item-1 {
-    text-align: center;
     margin: 0 auto;
   }
 
@@ -34,7 +34,7 @@
   .bookcover {
     margin: 0;
   }
-  
+
   .dropdown--options,
   input.checkbox+.label,
   .dropdown--container,
