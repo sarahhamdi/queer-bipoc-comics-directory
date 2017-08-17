@@ -1,5 +1,6 @@
 .swiper-slide {
     display: flex;
+    flex-flow: row wrap;
     .results-title,
     h3,
     h4 {
@@ -34,6 +35,7 @@
 
 .flex-item-2 {
     text-align: left;
+    width: calc(100% - 320px);
 }
 
 .bookcover {
