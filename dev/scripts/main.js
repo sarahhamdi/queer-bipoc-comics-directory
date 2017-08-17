@@ -27,7 +27,6 @@ goodreads.success = (grBooks) => {
 };
 sheetsu.success = (sBooks) => {
     sheetsu.filtered(sBooks);
-    console.log("working?");
 };
 
 // +++++++++ FILTERING SHEETSU DATA BASED ON USER INPUT - THANKS WES BOS! ++++++++++++++++++++++
@@ -41,7 +40,6 @@ sheetsu.filtered = (sBooks) => {
             book[arrayItem] === "1"));
 
     sheetsu.filteredBooks.map(filteredBook => {
-        console.log(filteredBook.bookTitle);
         goodreads.getData(filteredBook.booktitle);
     });
 }; 

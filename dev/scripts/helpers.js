@@ -10,12 +10,12 @@ helpers.cleanup = (description, grlink) => {
     cleanDesc = helpers.replaceWeirdChars(cleanDesc);
     cleanDesc = helpers.truncateDesc(cleanDesc, grlink);
     /********************************** 
-    if there is no description for this book (object Object)
+    if there is no description for this book [object Object]
     then replace the description with a message
     else truncate the description before it is printed
     **********************************/
-    if  (cleanDesc == "[object Object]")
-        cleanDesc = emptyDesc; 
+    if  (cleanDesc.length == 121)
+        return emptyDesc; 
         return cleanDesc;
 };
 
@@ -60,7 +60,7 @@ helpers.bookcovers = (goodreadsImageURL, isbn) => {
     else print the open library image;
     **********************************/
     if (re.exec(replaceGoodreadsWithOpenLibrary) === null) 
-        return newImageURL = largeImageURL;
+        return largeImageURL;
         return newImageURL = 'http://covers.openlibrary.org/b/isbn/' + parseInt(isbn) + '-L.jpg?default=false';
 };
 
@@ -84,6 +84,7 @@ helpers.initSlider = () => {
             // Optional parameters
             pagination: '.swiper-pagination',
             paginationClickable: true,
+            keyboardControl: true,
             loop: true,
             paginationBulletRender: function (swiper, index, className) {
             return '<span class="' + className + '">' + (index + 1) + '</span>';}
