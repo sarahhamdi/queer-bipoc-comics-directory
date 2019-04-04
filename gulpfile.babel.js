@@ -91,8 +91,11 @@ function watch() {
 }
 
 const serve = gulp.series(gulp.parallel(styles, scripts, assets), startServer);
-const build = gulp.parallel(serve, watch)
+const start = gulp.parallel(serve, watch)
+const build = gulp.parallel(styles, scripts, assets)
+
+export { build }
 /*
  * Export a default task
  */
-export default build;
+export default start;
