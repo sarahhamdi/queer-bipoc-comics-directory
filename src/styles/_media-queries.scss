@@ -1,0 +1,38 @@
+@media only screen and (max-width: 960px) {
+  main {
+    padding-right: 0;
+    padding-left: 0;
+  }
+  #results {
+    max-width: 100%;
+  }
+  .bookcover {
+    width: 260px;
+  }
+}
+
+@media only screen and (max-width: 700px) {
+  h2,
+  .subtitle {
+    margin-left: 0;
+    margin-right: 0;
+    padding: 0;
+  }
+  .bookcover {
+    width: 160px;
+  }
+}
+
+@media only screen and (max-width: 540px) {
+  .swiper-slide {
+    display: flex;
+    flex-direction: column;
+  }
+  .bookcover {
+    width: 60%;
+    margin-bottom: 20px;
+  }
+}
+
+
+

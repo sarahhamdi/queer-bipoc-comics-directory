@@ -37,12 +37,8 @@ h1 {
     font-size: 104px;
     font-size: 9.6rem;
     text-transform: uppercase;
-}
-
-h1 {
     font-family: $font-family--header;
 }
-
 
 
 h2,
@@ -56,17 +52,22 @@ h2 {
     font-family: $font-family--header;
 }
 
+h3,
+h4 {
+    margin-bottom: 16px;
+}
+
 .subtitle {
-    font-size: 14px;
+    font-size: 16px;
     font-family: $font-family--body;
     font-weight: 300;
-    line-height: $base__line-height;
+    line-height: 160%;
     color: palette(text, inverted);
 }
 
 p {
     margin: 10px 0;
-    line-height: 150%;
+    line-height: 160%;
 }
 
 .small {

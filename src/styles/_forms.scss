@@ -10,7 +10,7 @@
 
 
 #submit {
-    @include padding-margin (20px, 50px 0 0 0);
+    @include padding-margin (20px, 50px 0 0 20px);
     background: linear-gradient(-79deg, #EEA8F9 0%, #c5f4f5 100%);
     border: none;
     box-shadow: 0 3px 13px 0 rgba(73,69,72,0.17);

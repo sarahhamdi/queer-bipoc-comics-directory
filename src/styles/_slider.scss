@@ -8,16 +8,22 @@
 }
 
 .swiper-pagination-bullet {
-    width: 20px;
-    height: 20px;
     border-radius: 2px;
     text-align: center;
     line-height: 20px;
-    font-size: 12px;
+    font-size: 1.6rem;
     color: #000;
     opacity: 1;
     background: rgba(0,0,0,0.2);
+    padding: 4px;
+    width: 26px;
+    min-height: 26px;
 }
+
+.swiper-container-horizontal>.swiper-pagination-bullets .swiper-pagination-bullet {
+    margin: 5px;
+}
+
 .swiper-pagination-bullet-active {
     color:#fff;
     background: palette(text, link);
@@ -27,10 +33,8 @@
     text-align: left;
 }
 
-
-
 .bookcover {
-    margin: 0 20px 0 0;
+    margin: 0 40px 0 0;
     border: 1px solid $blue-dark;
     width: 300px;
     box-shadow: 10px 10px 39px -4px rgba(204, 204, 204, 0.6);
@@ -38,6 +42,10 @@
 
 .tpl {
     width: 120px;
+    padding: 8px;
+    border-radius: 4px;
+    background: $white;
+    box-shadow: 0 11px 16px 0 rgba(194, 152, 152, 0.3);
 }
 
 .star {

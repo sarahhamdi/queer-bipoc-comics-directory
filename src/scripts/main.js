@@ -21,10 +21,12 @@ generic.error = (data) => {
     console.log(`goodreads error ${data}`);
     helpers.initSlider();
 };
+
 goodreads.success = (grBooks) => {
     helpers.printToPage(grBooks);
     helpers.initSlider();
 };
+
 sheetsu.success = (sBooks) => {
     sheetsu.filtered(sBooks);
 };
@@ -80,10 +82,11 @@ goodreads.getData = (sheetsuBookTitle) =>
 // // +++++++++ EVENT HANDLER FOR USER INPUT ++++++++++++++++++++++
 comicsApp.getUserInput = () => {
     helpers.dropdownCollapseExpand();
+    
     $('.choose-comics').on('submit', function(event) {
         $('.spinner').show();
-        $('#results').addClass('show');
-        helpers.scrollToElement('#results')
+        // $('#results').addClass('show');
+        helpers.scrollToElement('.small')
         event.preventDefault();
         generic.index = 0;
         comicsApp.userInputArray = [];

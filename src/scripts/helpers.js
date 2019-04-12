@@ -77,6 +77,8 @@ helpers.initSlider = () => {
     // increments the index until it reaches length of results array
     // when that happens, initates slider (since all content is now loaded)
     if (generic.index == arraylength) {
+        console.warn(arraylength)
+        
         new Swiper('.swiper-container', {
             // Optional parameters
             pagination: '.swiper-pagination',
@@ -86,6 +88,7 @@ helpers.initSlider = () => {
             return '<span class="' + className + '">' + (index + 1) + '</span>';}
         });
         $('.spinner').hide()
+        $('#results').addClass('show');
     } else {
         generic.index++;
     }
