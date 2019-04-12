@@ -67,7 +67,6 @@ helpers.bookcovers = (goodreadsImageURL, isbn) => {
 // +++++++ replaces all 404 openlib images with a blank image +++++++
 helpers.bookcoversBlank = () => {
     $('.bookcover').on('error', function() {
-        console.log('a 404 error');
         $(this).attr('src', 'public/assets/blankcover.png');
     });
 };
@@ -79,7 +78,6 @@ helpers.initSlider = () => {
     // increments the index until it reaches length of results array
     // when that happens, initates slider (since all content is now loaded)
     if (generic.index == arraylength) {
-        console.log('last book');
         let mySwiper = new Swiper('.swiper-container', {
             // Optional parameters
             pagination: '.swiper-pagination',

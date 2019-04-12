@@ -27,7 +27,6 @@ goodreads.success = (grBooks) => {
 };
 sheetsu.success = (sBooks) => {
     sheetsu.filtered(sBooks);
-    console.log("working?");
 };
 
 // +++++++++ FILTERING SHEETSU DATA BASED ON USER INPUT - THANKS WES BOS! ++++++++++++++++++++++
@@ -63,7 +62,7 @@ sheetsu.getData = () =>
 
 goodreads.getData = (sheetsuBookTitle) =>
     $.ajax({
-        url: 'http://proxy.hackeryou.com',
+        url: 'https://proxy.hackeryou.com',
         dataType: 'json',
         method: 'GET',
         data: {
@@ -94,6 +93,8 @@ comicsApp.getUserInput = () => {
         sheetsu.getData();
     });
 };
+
+
 
 // +++++++++ DOCUMENT READY ++++++++++++++++++++++
 $(function() {

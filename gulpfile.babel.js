@@ -18,7 +18,6 @@ import autoprefixer from 'gulp-autoprefixer';
 
 // images
 import imageMin from 'gulp-imagemin'
-import del from 'del';
 
 // server
 const browserSync = require('browser-sync').create();
@@ -53,12 +52,12 @@ export function styles() {
         .pipe(plumber({
             errorHandler: notify.onError("Error: <%= error.message %>")
         }))
-        // .pipe(sourcemaps.init())
+        .pipe(sourcemaps.init())
         .pipe(sass().on('error', sass.logError))
         .pipe(minifyCSS())
         .pipe(autoprefixer('last 5 version', 'safari 5', 'ie 8', 'ie 9', 'opera 12.1'))
-        // .pipe(sourcemaps.write('.'))
-        // .pipe(concat('style.css'))
+        .pipe(sourcemaps.write('.'))
+        .pipe(concat('style.css'))
         .pipe(rename({
             basename: 'main',
             suffix: '.min'
