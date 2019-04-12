@@ -73,19 +73,19 @@ helpers.bookcoversBlank = () => {
 
 // +++++++ initializes slider +++++++++++
 helpers.initSlider = () => {
-    
     let arraylength = sheetsu.filteredBooks.length - 1;
     // increments the index until it reaches length of results array
     // when that happens, initates slider (since all content is now loaded)
     if (generic.index == arraylength) {
-        let mySwiper = new Swiper('.swiper-container', {
+        new Swiper('.swiper-container', {
             // Optional parameters
             pagination: '.swiper-pagination',
             paginationClickable: true,
             loop: true,
             paginationBulletRender: function (swiper, index, className) {
             return '<span class="' + className + '">' + (index + 1) + '</span>';}
-        }); 
+        });
+        $('.spinner').hide()
     } else {
         generic.index++;
     }
@@ -115,15 +115,13 @@ helpers.printToPage = (grBooks) => {
     let rating = helpers.rating(books.average_rating);
     let grlink = books.link;
     // publisher - cleans up publisher in case it comes back as [object object]
-    let publisher;
-    let publisherIfElse = (books.publisher == '[object Object]') ?
-        publisher = 'Not Available' : publisher = books.publisher;
+    let publisher = (books.publisher == '[object Object]') ?
+        'Not Available' : 
+        books.publisher;
     // makers - mapping over the author array to print all authors
-    let makers = [];
-    let makersIfElse = (books.authors.author.name) ?
-        makers = books.authors.author.name : books.authors.author.forEach(function(person) {
-            makers.push(` ${person.name}`);
-        });
+    let makers = (books.authors.author.name) ?
+        books.authors.author.name :
+        books.authors.author.map((person) => person.name);
 
     let printing =
         `<p class="flex-item-1">
@@ -145,3 +143,9 @@ helpers.printToPage = (grBooks) => {
     $('#pagination').addClass('swiper-pagination');
     helpers.bookcoversBlank();
 };
+
+helpers.scrollToElement = (element) => {
+    $('html, body').animate({
+        scrollTop: $(element).offset().top + 'px'
+    }, 'fast');
+}

@@ -4,6 +4,7 @@
 @import 'forms';
 @import 'layouts';
 @import 'slider';
+@import 'spinner';
 @import 'media-queries';
 
 html {
@@ -13,32 +14,3 @@ html {
 img {
 	width: 100%;
 }
-
-header,
-footer,
-main {
-    max-width: 960px;
-    padding: 0;
-    margin: 0 auto;
-}
-
-header {
-    padding-top: 30px;
-}
-
-footer {
-    padding-bottom: 50px;
-}
-
-main {
-    padding: 75px 50px;
-}
-#wrapper {
-    margin: 0 0 50px 0;
-}
-
-body {
-    color: $blue-dark;
-    position: relative;
-}
-

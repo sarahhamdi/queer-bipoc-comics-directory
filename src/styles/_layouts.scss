@@ -2,19 +2,24 @@ body {
     background: palette(background, gradient);
     background: url('/public/assets/background.png');
     background: #FFEBEB;
+    min-height: 100vh;
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
 }
-
 
 header,
 footer {
     text-align: center;
 }
+
 header,
 footer,
 main {
     max-width: 960px;
     padding: 0;
-    margin: 0 auto;
 }
 
 header {
@@ -23,6 +28,7 @@ header {
 
 footer {
     padding-bottom: 50px;
+    margin-top: 30px;
 }
 
 main {

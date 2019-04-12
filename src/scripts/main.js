@@ -81,7 +81,9 @@ goodreads.getData = (sheetsuBookTitle) =>
 comicsApp.getUserInput = () => {
     helpers.dropdownCollapseExpand();
     $('.choose-comics').on('submit', function(event) {
+        $('.spinner').show();
         $('#results').addClass('show');
+        helpers.scrollToElement('#results')
         event.preventDefault();
         generic.index = 0;
         comicsApp.userInputArray = [];
