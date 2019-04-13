@@ -7,7 +7,6 @@ body {
     flex-flow: column wrap;
     justify-content: space-between;
     align-items: center;
-    padding: 0 20px;
 }
 
 header,
@@ -16,28 +15,29 @@ footer {
 }
 
 header,
-footer,
 main {
     max-width: 960px;
     padding: 0;
 }
 
 header {
-    padding-top: 30px;
+    margin: 30px 24px;
 }
 
 footer {
-    padding-bottom: 50px;
-    margin-top: 30px;
+    background: #ffffff5e;
+    margin: 50px -24px 0 -24px;
+    padding: 24px;
+    width: 100%;
 }
 
 main {
-    padding: 75px 50px;
+    padding: 75px 24px;
     display: none;
 }
 
 #wrapper {
-    margin: 0 0 50px 0;
+    margin: 0 0 80px 0;
 }
 
 body {

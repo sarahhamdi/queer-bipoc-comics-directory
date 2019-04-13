@@ -1,8 +1,13 @@
 @media only screen and (max-width: 960px) {
-  main {
-    padding-right: 0;
-    padding-left: 0;
+  #results {
+    max-width: 100%;
   }
+  .bookcover {
+    width: 260px;
+  }
+}
+
+@media only screen and (max-width: 960px) {
   #results {
     max-width: 100%;
   }
@@ -12,6 +17,12 @@
 }
 
 @media only screen and (max-width: 700px) {
+  h1 {
+    font-size: 7rem;
+  }
+  h2 {
+    font-size: 3rem;
+  }
   h2,
   .subtitle {
     margin-left: 0;
@@ -32,7 +43,35 @@
     width: 60%;
     margin-bottom: 20px;
   }
+  #dropdown {
+    width: 300px;
+  }
+  .dropdown--options {
+    width: 300px;
+  }
+  input.checkbox + .label {
+    width: 300px;
+    &:before {
+      margin-right: 16px;
+      margin-left: 24px;
+    }
+  }
+  input.checkbox:checked+.label:after {
+    left: 30px;
+  }
+  #submit {
+    margin-left: 0;
+    margin-top: 36px;
+  }
+
 }
+
+@media only screen and (max-width: 360px) {
+  .bookcover {
+    width: 100%;
+  }
+}
+
 
 
 
